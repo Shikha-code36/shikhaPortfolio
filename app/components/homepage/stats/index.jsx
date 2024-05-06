@@ -21,7 +21,7 @@ function GitStats() {
             <div className="bg-primary-bg">
             <img
               src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${personalData.githubUser}&theme=algolia`}
-              width={1080}
+              width={1150}
               height={520}
               alt="github profile-details"
               className="rounded-lg "
@@ -32,12 +32,13 @@ function GitStats() {
 
         <>
           <GlowCard identifier="github-stats">
-            <img
-              src={`https://github-readme-stats.vercel.app/api?username=${personalData.githubUser}&show_icons=true&include_all_commits=true&theme=algolia&hide_border=true`}
-              width={1080}
-              height={520}
-              alt="github stats"
-            />
+          <img
+            src={`https://denvercoder1-github-readme-stats.vercel.app/api/?username=${personalData.githubUser}&show_icons=true&count_private=true&theme=dark&hide_border=true&bg_color=050f2c&title_color=00aeff&icon_color=3369e7`}
+            width={1080}
+            height={520}
+            alt="github profile-details"
+            className="rounded-lg "
+          />
           </GlowCard>
           <GlowCard identifier="github-stats-2">
             <img
