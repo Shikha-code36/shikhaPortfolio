@@ -14,29 +14,29 @@ function Navbar() {
           </Link>
         </div>
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-0 md:border-0 md:opacity-100" id="navbar-default">
+        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-l opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-0 md:border-0 md:opacity-100" id="navbar-default">
           <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">About</div>
+              <div className="text-l text-white transition-colors duration-300 hover:text-pink-600">About</div>
             </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">Experience</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">Experience</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">Skills</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">Skills</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#venture"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">My Venture</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#venture"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">My Venture</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#blogs"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">Blogs</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#blogs"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">Blogs</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">Projects</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">Projects</div></Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#stats"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">Git Stats</div></Link>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#stats"><div className="text-l text-white transition-colors duration-300 hover:text-pink-600">Git Stats</div></Link>
           </li>
         </ul>
       </div>

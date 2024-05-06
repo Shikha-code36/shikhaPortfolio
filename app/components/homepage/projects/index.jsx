@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
 import { projectsData } from '@/utils/data/projects-data';
 import ProjectCard from './project-card';
 

@@ -4,15 +4,13 @@ import { FaRegStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
 import { IoLinkSharp } from "react-icons/io5";
 
-// @flow strict
-function ProjectCard({ project }) {
-
+function GitProjectCard({ project }) {
   return (
     <Link href={project.html_url} target="_blank">
       <div className="p-8 h-48 flex flex-col justify-between bg-primary-bg">
         <div className="">
           <div className="flex justify-between items-center">
-            <p className="text-xl font-semibold capitalize text-primary-title">
+            <p className="text-xl font-semibold capitalize text-primary-title overflow-hidden overflow-ellipsis whitespace-nowrap">
               {project.name}
             </p>
             <IoLinkSharp className="text-primary-icon text-xl" />
@@ -45,4 +43,4 @@ function ProjectCard({ project }) {
   );
 };
 
-export default ProjectCard;
+export default GitProjectCard;

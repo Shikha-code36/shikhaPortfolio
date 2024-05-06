@@ -6,7 +6,7 @@ import Venture from "./components/homepage/venture";
 import Experience from "./components/homepage/experience";
 import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
-import Gitproject from "./components/homepage/Gitproject";
+import GitProjects from "./components/homepage/Gitproject";
 import Stats from "./components/homepage/stats";
 import Skills from "./components/homepage/skills";
 import xml2js from 'xml2js';
@@ -31,14 +31,6 @@ async function getData() {
   return filtered;
 }
 
-async function getGitProfile() {
-  const res = await fetch(`https://api.github.com/users/${personalData.githubUser}`)
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return await res.json();
-};
 
 async function getGitProjects() {
   const res = await fetch(`https://api.github.com/search/repositories?q=user:${personalData.githubUser}+fork:false&sort=stars&per_page=10&type=Repositories`)
@@ -52,7 +44,6 @@ async function getGitProjects() {
 
 export default async function Home() {
   const blogs = await getData();
-  const profile = await getGitProfile();
   const projects = await getGitProjects();
 
   return (
@@ -62,8 +53,7 @@ export default async function Home() {
       <Experience />
       <Skills />
       <Projects />
-      <Gitproject projects={projects.items}
-        profile={profile} />
+      <GitProjects projects={projects.items} />
       <Stats/>
       <Venture />
       <Blog blogs={blogs} />
