@@ -12,7 +12,6 @@ import graphql from '/public/svg/skills/graphql.svg';
 import html from '/public/svg/skills/html.svg';
 import javascript from '/public/svg/skills/javascript.svg';
 import markdown from '/public/svg/skills/markdown.svg';
-import microsoftoffice from '/public/svg/skills/microsoftoffice.svg';
 import mongoDB from '/public/svg/skills/mongoDB.svg';
 import mysql from '/public/svg/skills/mysql.svg';
 import nginx from '/public/svg/skills/nginx.svg';
@@ -28,6 +27,7 @@ import fastAPI from '/public/svg/skills/fastapi.svg';
 import apacheAirflow from '/public/svg/skills/apacheairflow.svg';
 import apacheKafka from '/public/svg/skills/apachekafka.svg';
 import rabbitMQ from '/public/svg/skills/rabbitmq.svg';
+import langchain from '/public/svg/skills/langchain.svg';
 
 
 
@@ -62,8 +62,6 @@ export const skillsImage = (skill) => {
       return javascript;
     case 'markdown':
       return markdown;
-    case 'microsoft office':
-      return microsoftoffice;
     case 'mongodb':
       return mongoDB;
     case 'mysql':
@@ -94,6 +92,8 @@ export const skillsImage = (skill) => {
       return apacheKafka;
     case 'rabbitmq':
       return rabbitMQ;
+    case 'langchain':
+      return langchain;
     default:
       break;
   }
