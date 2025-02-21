@@ -92,7 +92,7 @@ export const skillsImage = (skill) => {
       return apacheKafka;
     case 'rabbitmq':
       return rabbitMQ;
-    case 'langchain':
+    case 'LangChain':
       return langchain;
     default:
       break;

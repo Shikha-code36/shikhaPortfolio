@@ -19,7 +19,8 @@ export const skillsData = [
   'Django',
   'Apache Airflow',
   'Apache Kafka',
-  'RabbitMQ'
+  'RabbitMQ',
+  'LangChain'
 ];
 
 
