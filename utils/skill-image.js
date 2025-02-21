@@ -27,7 +27,6 @@ import fastAPI from '/public/svg/skills/fastapi.svg';
 import apacheAirflow from '/public/svg/skills/apacheairflow.svg';
 import apacheKafka from '/public/svg/skills/apachekafka.svg';
 import rabbitMQ from '/public/svg/skills/rabbitmq.svg';
-import langchain from '/public/svg/skills/langchain.svg';
 
 
 
@@ -92,8 +91,6 @@ export const skillsImage = (skill) => {
       return apacheKafka;
     case 'rabbitmq':
       return rabbitMQ;
-    case 'LangChain':
-      return langchain;
     default:
       break;
   }
