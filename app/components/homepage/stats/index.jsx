@@ -29,8 +29,19 @@ function GitStats() {
             </div>
           </GlowCard>
         </div>
+        <div className="md:col-span-2">
+          <GlowCard identifier="github-stats">
+            <img
+              src={`https://denvercoder1-github-readme-stats.vercel.app/api/?username=${personalData.githubUser}&show_icons=true&count_private=true&theme=dark&hide_border=true&bg_color=050f2c&title_color=00aeff&icon_color=3369e7`}
+              width={1150}
+              height={520}
+              alt="github profile-details"
+              className="rounded-lg "
+            />
+          </GlowCard>
+          </div>
 
-        <>
+        {/* <>
           <GlowCard identifier="github-stats">
           <img
             src={`https://denvercoder1-github-readme-stats.vercel.app/api/?username=${personalData.githubUser}&show_icons=true&count_private=true&theme=dark&hide_border=true&bg_color=050f2c&title_color=00aeff&icon_color=3369e7`}
@@ -49,7 +60,7 @@ function GitStats() {
               className="rounded-lg"
             />
           </GlowCard>
-        </>
+        </> */}
       </div>
     </div>
   );
