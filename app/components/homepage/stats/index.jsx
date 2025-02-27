@@ -42,7 +42,7 @@ function GitStats() {
           </GlowCard>
           <GlowCard identifier="github-stats-2">
             <img
-              src={`https://streak-stats.demolab.com/?user=Shikha-code36&theme=algolia&hide_border=true`}
+              src={`https://streak-stats.demolab.com/?user=${personalData.githubUser}&theme=algolia&hide_border=true`}
               width={1080}
               height={520}
               alt="github stats"
