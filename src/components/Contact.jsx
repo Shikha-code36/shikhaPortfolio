@@ -6,55 +6,119 @@ import {
   Github,
   Send,
   CheckCircle,
+  AlertCircle,
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+// Email validation utility
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [input, setInput] = useState({
     name: "",
     email: "",
-    company: "",
-    projectType: "",
+    subject: "",
     message: "",
   });
+
+  const [error, setError] = useState({
+    email: false,
+    required: false,
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const projectTypes = [
-    "System Architecture Consulting",
-    "AI/ML Integration Projects",
-    "Technical Leadership Roles",
-    "Startup Collaboration",
-    "Open Source Contributions",
-  ];
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const checkRequired = () => {
+    if (input.email && input.message && input.name && input.subject) {
+      setError({ ...error, required: false });
+    }
   };
 
-  const handleSubmit = async (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInput({ ...input, [name]: value });
+  };
+
+  const handleEmailBlur = () => {
+    checkRequired();
+    setError({ ...error, email: input.email && !isValidEmail(input.email) });
+  };
+
+  const handleSendMail = async (e) => {
     e.preventDefault();
+
+    // Validation
+    if (!input.email || !input.message || !input.name || !input.subject) {
+      setError({ ...error, required: true });
+      return;
+    }
+
+    if (!isValidEmail(input.email)) {
+      setError({ ...error, email: true });
+      return;
+    }
+
+    setError({ email: false, required: false });
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const serviceID =
+      import.meta.env.VITE_EMAILJS_SERVICE_ID ||
+      process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID =
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID ||
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey =
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY ||
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    console.log("Environment check:", { serviceID, templateID, publicKey }); // Debug log
 
-    // Reset form after success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "",
-        message: "",
-      });
-    }, 3000);
+    if (!serviceID || !templateID || !publicKey) {
+      console.error("Missing EmailJS configuration");
+      setError({ ...error, required: true });
+      return;
+    }
+
+    const options = { publicKey };
+
+    try {
+      // Initialize EmailJS with public key
+      emailjs.init(publicKey);
+
+      const templateParams = {
+        from_name: input.name,
+        from_email: input.email,
+        subject: input.subject,
+        message: input.message,
+        to_name: "Shikha",
+      };
+
+      const res = await emailjs.send(serviceID, templateID, templateParams);
+
+      if (res.status === 200) {
+        setIsSubmitted(true);
+        setInput({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setError({ ...error, required: true }); // Show error using existing error state
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -200,60 +264,89 @@ export const Contact = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-white font-medium mb-2"
-                    >
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-white font-medium mb-2"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
+              <form onSubmit={handleSendMail} className="space-y-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-white font-medium mb-2"
+                  >
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={input.name}
+                    onChange={handleInputChange}
+                    onBlur={checkRequired}
+                    maxLength="100"
+                    required
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    placeholder="Your name"
+                  />
                 </div>
 
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-white font-medium mb-2"
+                  >
+                    Your Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={input.email}
+                    onChange={handleInputChange}
+                    onBlur={handleEmailBlur}
+                    maxLength="100"
+                    required
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    placeholder="your.email@example.com"
+                  />
+                  {error.email && (
+                    <p className="text-red-400 text-sm mt-2">
+                      Please provide a valid email!
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block text-white font-medium mb-2"
+                  >
+                    Subject *
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={input.subject}
+                    onChange={handleInputChange}
+                    onBlur={checkRequired}
+                    maxLength="150"
+                    required
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    placeholder="What's this about?"
+                  />
+                </div>
 
                 <div>
                   <label
                     htmlFor="message"
                     className="block text-white font-medium mb-2"
                   >
-                    Message *
+                    Your Message *
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    value={input.message}
+                    onChange={handleInputChange}
+                    onBlur={checkRequired}
+                    maxLength="500"
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300 resize-none"
@@ -261,23 +354,40 @@ export const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center space-x-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      <span>Send Message</span>
-                    </>
+                <div className="flex flex-col items-center gap-4">
+                  {error.required && (
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 flex items-center space-x-3 w-full">
+                      <AlertCircle
+                        size={20}
+                        className="text-red-400 flex-shrink-0"
+                      />
+                      <p className="text-red-400 text-sm">
+                        All fields are required!
+                      </p>
+                    </div>
                   )}
-                </button>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center space-x-2 group"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send
+                          size={20}
+                          className="group-hover:translate-x-1 transition-transform duration-200"
+                        />
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
