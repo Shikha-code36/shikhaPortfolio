@@ -11,7 +11,7 @@ export const Footer = () => {
     },
     { icon: Mail, href: "mailto:shikha.py36@gmail.com", label: "Email" },
   ];
-
+  const currentYear = new Date().getFullYear();
   const quickLinks = [
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
@@ -99,7 +99,7 @@ export const Footer = () => {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2024 Shikha Pandey. Built with React & Modern Web Technologies
+              © {currentYear} Shikha Pandey. Built with React & Modern Web Technologies
             </div>
 
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
