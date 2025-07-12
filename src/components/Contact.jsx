@@ -67,7 +67,7 @@ export const Contact = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "Noida, India",
+      value: "Gurugram, India",
       href: "#",
     },
     {
@@ -241,48 +241,6 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-white font-medium mb-2"
-                    >
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
-                      placeholder="Your company"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="projectType"
-                      className="block text-white font-medium mb-2"
-                    >
-                      Project Type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white focus:border-cyan-400 focus:outline-none transition-colors duration-300"
-                    >
-                      <option value="">Select project type</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
 
                 <div>
                   <label
