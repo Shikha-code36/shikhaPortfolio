@@ -197,7 +197,7 @@ export const GitHubProjects = () => {
                 Explore All My Projects
               </h3>
               <p className="text-gray-300 mb-6">
-                Discover {repositories.length}+ repositories covering everything
+                Discover all my repositories covering everything
                 from AI/ML research to enterprise solutions, data engineering,
                 and system architecture.
               </p>
@@ -208,7 +208,7 @@ export const GitHubProjects = () => {
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 group"
               >
                 <Github size={20} />
-                <span>View All {repositories.length} Repositories</span>
+                <span>View All Repositories</span>
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform duration-300"
@@ -239,7 +239,7 @@ export const GitHubProjects = () => {
         <div>
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Github className="text-gray-400 mr-3" size={24} />
-            All Repositories ({filteredRepos.length})
+            Featured Repositories
           </h3>
 
           <div className="grid md:grid-cols-2 gap-4">
