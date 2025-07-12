@@ -1,25 +1,29 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import React from "react";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/Shikha-code36', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/36-shikha-pandey/', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:shikha.py36@gmail.com', label: 'Email' },
+    { icon: Github, href: "https://github.com/Shikha-code36", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/36-shikha-pandey/",
+      label: "LinkedIn",
+    },
+    { icon: Mail, href: "mailto:shikha.py36@gmail.com", label: "Email" },
   ];
 
   const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Blog", href: "#blog" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -33,12 +37,12 @@ export const Footer: React.FC = () => {
                 Shikha Pandey
               </h3>
               <p className="text-gray-400 leading-relaxed">
-                Senior Software Engineer & System Architect building scalable solutions 
-                for enterprise and startups. Passionate about AI/ML, high-performance systems, 
-                and technical innovation.
+                Senior Software Engineer & System Architect building scalable
+                solutions for enterprise and startups. Passionate about AI/ML,
+                high-performance systems, and technical innovation.
               </p>
             </div>
-            
+
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -49,9 +53,9 @@ export const Footer: React.FC = () => {
                   className="group p-3 bg-slate-800/50 backdrop-blur-sm border border-cyan-500/20 rounded-lg hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon 
-                    size={20} 
-                    className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" 
+                  <social.icon
+                    size={20}
+                    className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300"
                   />
                 </a>
               ))}
@@ -60,7 +64,9 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-white mb-6">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -95,16 +101,19 @@ export const Footer: React.FC = () => {
             <div className="text-gray-400 text-sm">
               © 2024 Shikha Pandey. Built with React & Modern Web Technologies
             </div>
-            
+
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
-              <span>Available for freelance projects and technical consulting</span>
+              <span>
+                Available for freelance projects and technical consulting
+              </span>
               <Heart size={16} className="text-red-400" />
             </div>
           </div>
-          
+
           <div className="text-center mt-6">
             <p className="text-gray-500 text-sm">
-              Crafting high-performance systems • Building the future of technology • 
+              Crafting high-performance systems • Building the future of
+              technology •
               <span className="text-cyan-400"> One line of code at a time</span>
             </p>
           </div>

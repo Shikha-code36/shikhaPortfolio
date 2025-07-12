@@ -1,45 +1,61 @@
-import React from 'react';
-import { Award, TrendingUp, Users, Target } from 'lucide-react';
+import React from "react";
+import { Award, TrendingUp, Users, Target } from "lucide-react";
 
-export const Achievements: React.FC = () => {
+export const Achievements = () => {
   const achievements = [
     {
-      category: 'Professional Recognition',
+      category: "Professional Recognition",
       icon: Award,
       items: [
-        'SPOT Award for outstanding performance and delivery',
-        'Enterprise Client Success with Fortune 500 companies',
-        'Technical Leadership in system architecture decisions',
-        'Mentoring junior developers and team collaboration',
+        "SPOT Award for outstanding performance and delivery",
+        "Enterprise Client Success with Fortune 500 companies",
+        "Technical Leadership in system architecture decisions",
+        "Mentoring junior developers and team collaboration",
       ],
     },
     {
-      category: 'Technical Achievements',
+      category: "Technical Achievements",
       icon: TrendingUp,
       items: [
-        '500+ LeetCode Problems solved demonstrating algorithmic expertise',
-        'Research Publication in AI/ML optimization strategies',
-        'Open Source Contributions to developer community',
-        'High-Performance Systems deployed in production environments',
+        "500+ LeetCode Problems solved demonstrating algorithmic expertise",
+        "Research Publication in AI/ML optimization strategies",
+        "Open Source Contributions to developer community",
+        "High-Performance Systems deployed in production environments",
       ],
     },
     {
-      category: 'Business Impact',
+      category: "Business Impact",
       icon: Target,
       items: [
-        'Enterprise-scale solutions serving millions of users',
-        'Real-time systems processing high-frequency data',
-        'AI/ML models deployed in production environments',
-        'Startup ventures from concept to market launch',
+        "Enterprise-scale solutions serving millions of users",
+        "Real-time systems processing high-frequency data",
+        "AI/ML models deployed in production environments",
+        "Startup ventures from concept to market launch",
       ],
     },
   ];
 
   const metrics = [
-    { number: '5+', label: 'Years Experience', description: 'Professional software development' },
-    { number: '2', label: 'Startups Founded', description: 'From concept to market' },
-    { number: '500+', label: 'Problems Solved', description: 'LeetCode algorithmic challenges' },
-    { number: '99.9%', label: 'System Uptime', description: 'Enterprise-grade reliability' },
+    {
+      number: "5+",
+      label: "Years Experience",
+      description: "Professional software development",
+    },
+    {
+      number: "2",
+      label: "Startups Founded",
+      description: "From concept to market",
+    },
+    {
+      number: "500+",
+      label: "Problems Solved",
+      description: "LeetCode algorithmic challenges",
+    },
+    {
+      number: "99.9%",
+      label: "System Uptime",
+      description: "Enterprise-grade reliability",
+    },
   ];
 
   return (
@@ -88,14 +104,16 @@ export const Achievements: React.FC = () => {
                   {category.category}
                 </h3>
               </div>
-              
+
               <ul className="space-y-4">
                 {category.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
                     className="text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300"
                   >
-                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">🏆</span>
+                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">
+                      🏆
+                    </span>
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -111,19 +129,41 @@ export const Achievements: React.FC = () => {
               Ready for Senior Technical Leadership Roles
             </h3>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-              With a proven track record of delivering enterprise-scale solutions, leading technical decisions, 
-              and building successful products from the ground up, I'm positioned to take on senior architect, 
-              CTO, or technical leadership roles where I can drive innovation and business impact.
+              With a proven track record of delivering enterprise-scale
+              solutions, leading technical decisions, and building successful
+              products from the ground up, I'm positioned to take on senior
+              architect, CTO, or technical leadership roles where I can drive
+              innovation and business impact.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-5 gap-8 mt-12">
             {[
-              { icon: '🏗️', title: 'System Architect', desc: 'Enterprise-scale design' },
-              { icon: '🤖', title: 'AI/ML Leader', desc: 'Production AI systems' },
-              { icon: '🚀', title: 'Technical CTO', desc: 'Startup to enterprise' },
-              { icon: '👥', title: 'Team Leader', desc: 'Mentoring & guidance' },
-              { icon: '📈', title: 'Growth Driver', desc: 'Business impact focus' },
+              {
+                icon: "🏗️",
+                title: "System Architect",
+                desc: "Enterprise-scale design",
+              },
+              {
+                icon: "🤖",
+                title: "AI/ML Leader",
+                desc: "Production AI systems",
+              },
+              {
+                icon: "🚀",
+                title: "Technical CTO",
+                desc: "Startup to enterprise",
+              },
+              {
+                icon: "👥",
+                title: "Team Leader",
+                desc: "Mentoring & guidance",
+              },
+              {
+                icon: "📈",
+                title: "Growth Driver",
+                desc: "Business impact focus",
+              },
             ].map((role, index) => (
               <div key={role.title} className="text-center group">
                 <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">

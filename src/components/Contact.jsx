@@ -1,51 +1,58 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Linkedin, Github, Send, CheckCircle } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Mail,
+  MapPin,
+  Linkedin,
+  Github,
+  Send,
+  CheckCircle,
+} from "lucide-react";
 
-export const Contact: React.FC = () => {
+export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    projectType: '',
-    message: '',
+    name: "",
+    email: "",
+    company: "",
+    projectType: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const projectTypes = [
-    'System Architecture Consulting',
-    'AI/ML Integration Projects',
-    'Technical Leadership Roles',
-    'Startup Collaboration',
-    'Open Source Contributions',
+    "System Architecture Consulting",
+    "AI/ML Integration Projects",
+    "Technical Leadership Roles",
+    "Startup Collaboration",
+    "Open Source Contributions",
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+  const handleChange = (e) => {
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after success
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        company: '',
-        projectType: '',
-        message: '',
+        name: "",
+        email: "",
+        company: "",
+        projectType: "",
+        message: "",
       });
     }, 3000);
   };
@@ -53,35 +60,44 @@ export const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'shikha.py36@gmail.com',
-      href: 'mailto:shikha.py36@gmail.com',
+      label: "Email",
+      value: "shikha.py36@gmail.com",
+      href: "mailto:shikha.py36@gmail.com",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Noida, India',
-      href: '#',
+      label: "Location",
+      value: "Noida, India",
+      href: "#",
     },
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/36-shikha-pandey/',
-      href: 'https://www.linkedin.com/in/36-shikha-pandey/',
+      label: "LinkedIn",
+      value: "linkedin.com/in/36-shikha-pandey/",
+      href: "https://www.linkedin.com/in/36-shikha-pandey/",
     },
     {
       icon: Github,
-      label: 'GitHub',
-      value: 'github.com/Shikha-code36',
-      href: 'https://github.com/Shikha-code36',
+      label: "GitHub",
+      value: "github.com/Shikha-code36",
+      href: "https://github.com/Shikha-code36",
     },
   ];
 
   const availability = [
-    { type: 'Consulting', status: 'Available for technical architecture consulting' },
-    { type: 'Collaboration', status: 'Open to interesting technical challenges' },
-    { type: 'Speaking', status: 'Available for tech talks and conferences' },
-    { type: 'Mentoring', status: 'Supporting junior developers and career guidance' },
+    {
+      type: "Consulting",
+      status: "Available for technical architecture consulting",
+    },
+    {
+      type: "Collaboration",
+      status: "Open to interesting technical challenges",
+    },
+    { type: "Speaking", status: "Available for tech talks and conferences" },
+    {
+      type: "Mentoring",
+      status: "Supporting junior developers and career guidance",
+    },
   ];
 
   return (
@@ -95,8 +111,10 @@ export const Contact: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to discuss your next system architecture challenge?<br />
-            Let's collaborate on building scalable, high-performance solutions that drive business impact.
+            Ready to discuss your next system architecture challenge?
+            <br />
+            Let's collaborate on building scalable, high-performance solutions
+            that drive business impact.
           </p>
         </div>
 
@@ -104,14 +122,20 @@ export const Contact: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Get in Touch
+              </h3>
               <div className="space-y-4">
                 {contactInfo.map((info) => (
                   <a
                     key={info.label}
                     href={info.href}
-                    target={info.href.startsWith('http') ? '_blank' : undefined}
-                    rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    target={info.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      info.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="flex items-center space-x-4 text-gray-300 hover:text-cyan-400 transition-colors duration-300 group"
                   >
                     <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 p-3 rounded-lg border border-cyan-500/20 group-hover:border-cyan-400/40 transition-all duration-300">
@@ -127,7 +151,9 @@ export const Contact: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Availability</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Availability
+              </h3>
               <div className="space-y-4">
                 {availability.map((item) => (
                   <div
@@ -135,10 +161,17 @@ export const Contact: React.FC = () => {
                     className="bg-gradient-to-r from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-4"
                   >
                     <div className="flex items-center space-x-3">
-                      <CheckCircle size={16} className="text-green-400 flex-shrink-0" />
+                      <CheckCircle
+                        size={16}
+                        className="text-green-400 flex-shrink-0"
+                      />
                       <div>
-                        <div className="text-white font-medium">{item.type}</div>
-                        <div className="text-gray-400 text-sm">{item.status}</div>
+                        <div className="text-white font-medium">
+                          {item.type}
+                        </div>
+                        <div className="text-gray-400 text-sm">
+                          {item.status}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -149,19 +182,31 @@ export const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">Start a Conversation</h3>
-            
+            <h3 className="text-2xl font-bold text-white mb-6">
+              Start a Conversation
+            </h3>
+
             {isSubmitted ? (
               <div className="text-center py-12">
-                <CheckCircle size={64} className="text-green-400 mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-white mb-2">Message Sent Successfully!</h4>
-                <p className="text-gray-400">Thank you for reaching out. I'll get back to you soon.</p>
+                <CheckCircle
+                  size={64}
+                  className="text-green-400 mx-auto mb-4"
+                />
+                <h4 className="text-xl font-semibold text-white mb-2">
+                  Message Sent Successfully!
+                </h4>
+                <p className="text-gray-400">
+                  Thank you for reaching out. I'll get back to you soon.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-white font-medium mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-white font-medium mb-2"
+                    >
                       Name *
                     </label>
                     <input
@@ -175,9 +220,12 @@ export const Contact: React.FC = () => {
                       placeholder="Your name"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-white font-medium mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-white font-medium mb-2"
+                    >
                       Email *
                     </label>
                     <input
@@ -192,10 +240,13 @@ export const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-white font-medium mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-white font-medium mb-2"
+                    >
                       Company
                     </label>
                     <input
@@ -208,9 +259,12 @@ export const Contact: React.FC = () => {
                       placeholder="Your company"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="projectType" className="block text-white font-medium mb-2">
+                    <label
+                      htmlFor="projectType"
+                      className="block text-white font-medium mb-2"
+                    >
                       Project Type
                     </label>
                     <select
@@ -229,9 +283,12 @@ export const Contact: React.FC = () => {
                     </select>
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-white font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-white font-medium mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -245,7 +302,7 @@ export const Contact: React.FC = () => {
                     placeholder="Tell me about your project or how I can help..."
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}

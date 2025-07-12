@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, FileText } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { ChevronDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 
-export const Hero: React.FC = () => {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'Senior Software Engineer & System Architect';
+export const Hero = () => {
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Senior Software Engineer & System Architect";
 
   useEffect(() => {
     let index = 0;
@@ -20,22 +20,30 @@ export const Hero: React.FC = () => {
   }, []);
 
   const stats = [
-    { number: '5+', label: 'Years Experience', suffix: '' },
-    { number: '500+', label: 'LeetCode Problems', suffix: '' },
-    { number: '2', label: 'Startups Founded', suffix: '' },
-    { number: '500', label: 'Fortune 500 Client', suffix: '' },
+    { number: "5+", label: "Years Experience", suffix: "" },
+    { number: "500+", label: "LeetCode Problems", suffix: "" },
+    { number: "2", label: "Startups Founded", suffix: "" },
+    { number: "500", label: "Fortune 500 Client", suffix: "" },
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/Shikha-code36', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/36-shikha-pandey/', label: 'LinkedIn' },
-    { icon: FileText, href: 'https://pandeyshikha075.medium.com/', label: 'Medium' },
-    { icon: Mail, href: 'mailto:shikha.py36@gmail.com', label: 'Email' },
+    { icon: Github, href: "https://github.com/Shikha-code36", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/36-shikha-pandey/",
+      label: "LinkedIn",
+    },
+    {
+      icon: FileText,
+      href: "https://pandeyshikha075.medium.com/",
+      label: "Medium",
+    },
+    { icon: Mail, href: "mailto:shikha.py36@gmail.com", label: "Email" },
   ];
 
   const handleScrollToProjects = () => {
-    const element = document.querySelector('#projects');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.querySelector("#projects");
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -53,8 +61,11 @@ export const Hero: React.FC = () => {
               Building Scalable Solutions for Enterprise & Startups
             </p>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              5+ years crafting high-performance systems • AI/ML Integration Specialist<br />
-              Microservices Architecture Expert • Entrepreneur & Technical Leader
+              5+ years crafting high-performance systems • AI/ML Integration
+              Specialist
+              <br />
+              Microservices Architecture Expert • Entrepreneur & Technical
+              Leader
             </p>
           </div>
 
@@ -66,7 +77,7 @@ export const Hero: React.FC = () => {
                 className="group hover:scale-105 transition-transform duration-300"
                 style={{
                   animationDelay: `${index * 200}ms`,
-                  animation: 'slideUp 0.8s ease-out forwards',
+                  animation: "slideUp 0.8s ease-out forwards",
                 }}
               >
                 <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 transition-all duration-300">
@@ -90,9 +101,9 @@ export const Hero: React.FC = () => {
                 className="group p-3 bg-slate-800/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300"
                 aria-label={social.label}
               >
-                <social.icon 
-                  size={24} 
-                  className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300" 
+                <social.icon
+                  size={24}
+                  className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300"
                 />
               </a>
             ))}
@@ -134,7 +145,7 @@ export const Hero: React.FC = () => {
             transform: translateY(0);
           }
         }
-        
+
         @keyframes fade-in {
           from {
             opacity: 0;
@@ -145,7 +156,7 @@ export const Hero: React.FC = () => {
             transform: translateY(0);
           }
         }
-        
+
         .animate-fade-in {
           animation: fade-in 1s ease-out;
         }

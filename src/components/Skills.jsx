@@ -1,82 +1,94 @@
-import React from 'react';
-import { Code, Database, Cloud, Brain, Settings, Layers } from 'lucide-react';
+import React from "react";
+import { Code, Database, Cloud, Brain, Settings, Layers } from "lucide-react";
 
-export const Skills: React.FC = () => {
+export const Skills = () => {
   const skillCategories = [
     {
       icon: Layers,
-      title: 'System Design & Architecture',
+      title: "System Design & Architecture",
       skills: [
-        'Microservices Architecture',
-        'Distributed Systems Design',
-        'Event-Driven Architecture',
-        'High-Performance Computing',
-        'API Design & Development',
-        'Scalability Patterns',
+        "Microservices Architecture",
+        "Distributed Systems Design",
+        "Event-Driven Architecture",
+        "High-Performance Computing",
+        "API Design & Development",
+        "Scalability Patterns",
       ],
     },
     {
       icon: Code,
-      title: 'Programming & Frameworks',
+      title: "Programming & Frameworks",
       skills: [
-        'Python: FastAPI, Flask, Django',
-        'Go: High-performance backends',
-        'C++: System programming, HFT',
-        'JavaScript/TypeScript: Full-stack',
-        'Database: PostgreSQL, MongoDB, MySQL, Redis',
+        "Python: FastAPI, Flask, Django",
+        "Go: High-performance backends",
+        "C++: System programming, HFT",
+        "JavaScript/TypeScript: Full-stack",
+        "Database: PostgreSQL, MongoDB, MySQL, Redis",
       ],
     },
     {
       icon: Brain,
-      title: 'AI & Machine Learning',
+      title: "AI & Machine Learning",
       skills: [
-        'LLM Integration: LangChain, OpenAI GPT-4',
-        'RAG Applications: Vector databases, FAISS',
-        'Deep Learning: PyTorch, CNN optimization',
-        'Research: Reinforcement Learning, Neural Networks',
-        'Production AI: Model deployment, inference optimization',
+        "LLM Integration: LangChain, OpenAI GPT-4",
+        "RAG Applications: Vector databases, FAISS",
+        "Deep Learning: PyTorch, CNN optimization",
+        "Research: Reinforcement Learning, Neural Networks",
+        "Production AI: Model deployment, inference optimization",
       ],
     },
     {
       icon: Cloud,
-      title: 'Cloud & DevOps',
+      title: "Cloud & DevOps",
       skills: [
-        'AWS: EC2, S3, Lambda, SQS',
-        'GCP: Cloud platform services',
-        'Containerization: Docker, Kubernetes',
-        'CI/CD: Automated deployment pipelines',
-        'Infrastructure: Infrastructure as Code',
+        "AWS: EC2, S3, Lambda, SQS",
+        "GCP: Cloud platform services",
+        "Containerization: Docker, Kubernetes",
+        "CI/CD: Automated deployment pipelines",
+        "Infrastructure: Infrastructure as Code",
       ],
     },
     {
       icon: Database,
-      title: 'Data Engineering',
+      title: "Data Engineering",
       skills: [
-        'Streaming: Apache Kafka, real-time processing',
-        'Orchestration: Apache Airflow, workflow management',
-        'Communication: WebSocket, real-time systems',
-        'ETL: Data pipelines, transformation',
-        'Analytics: Performance monitoring, metrics',
+        "Streaming: Apache Kafka, real-time processing",
+        "Orchestration: Apache Airflow, workflow management",
+        "Communication: WebSocket, real-time systems",
+        "ETL: Data pipelines, transformation",
+        "Analytics: Performance monitoring, metrics",
       ],
     },
     {
       icon: Settings,
-      title: 'Technical Leadership',
+      title: "Technical Leadership",
       skills: [
-        'Architecture Decision Making',
-        'Code Review & Quality Assurance',
-        'Team Mentoring & Guidance',
-        'Project Planning & Execution',
-        'Performance Optimization',
+        "Architecture Decision Making",
+        "Code Review & Quality Assurance",
+        "Team Mentoring & Guidance",
+        "Project Planning & Execution",
+        "Performance Optimization",
       ],
     },
   ];
 
   const technicalStats = [
-    { label: 'Programming Languages', value: '8+', description: 'Languages mastered' },
-    { label: 'Cloud Platforms', value: '3', description: 'AWS, GCP, Azure' },
-    { label: 'Database Systems', value: '6+', description: 'SQL & NoSQL databases' },
-    { label: 'AI/ML Projects', value: '10+', description: 'Production deployments' },
+    {
+      label: "Programming Languages",
+      value: "8+",
+      description: "Languages mastered",
+    },
+    { label: "Cloud Platforms", value: "3", description: "AWS, GCP, Azure" },
+    {
+      label: "Database Systems",
+      value: "6+",
+      description: "SQL & NoSQL databases",
+    },
+    {
+      label: "AI/ML Projects",
+      value: "10+",
+      description: "Production deployments",
+    },
   ];
 
   return (
@@ -125,14 +137,16 @@ export const Skills: React.FC = () => {
                   {category.title}
                 </h3>
               </div>
-              
+
               <ul className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <li
                     key={skillIndex}
                     className="text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300"
                   >
-                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">•</span>
+                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">
+                      •
+                    </span>
                     <span className="leading-relaxed">{skill}</span>
                   </li>
                 ))}
@@ -146,19 +160,34 @@ export const Skills: React.FC = () => {
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
             Programming Languages & Technologies
           </h3>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              { name: 'Python', level: 95, color: 'from-blue-400 to-blue-600' },
-              { name: 'JavaScript', level: 90, color: 'from-yellow-400 to-yellow-600' },
-              { name: 'C++', level: 85, color: 'from-red-400 to-red-600' },
-              { name: 'Go', level: 80, color: 'from-cyan-400 to-cyan-600' },
-              { name: 'TypeScript', level: 88, color: 'from-blue-400 to-blue-600' },
-              { name: 'PostgreSQL', level: 92, color: 'from-indigo-400 to-indigo-600' },
+              { name: "Python", level: 95, color: "from-blue-400 to-blue-600" },
+              {
+                name: "JavaScript",
+                level: 90,
+                color: "from-yellow-400 to-yellow-600",
+              },
+              { name: "C++", level: 85, color: "from-red-400 to-red-600" },
+              { name: "Go", level: 80, color: "from-cyan-400 to-cyan-600" },
+              {
+                name: "TypeScript",
+                level: 88,
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                name: "PostgreSQL",
+                level: 92,
+                color: "from-indigo-400 to-indigo-600",
+              },
             ].map((lang, index) => (
               <div key={lang.name} className="text-center group">
                 <div className="relative w-16 h-16 mx-auto mb-3">
-                  <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+                  <svg
+                    className="w-16 h-16 transform -rotate-90"
+                    viewBox="0 0 36 36"
+                  >
                     <path
                       d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
@@ -177,14 +206,19 @@ export const Skills: React.FC = () => {
                       }}
                     />
                     <defs>
-                      <linearGradient id="gradient" className={`bg-gradient-to-r ${lang.color}`}>
+                      <linearGradient
+                        id="gradient"
+                        className={`bg-gradient-to-r ${lang.color}`}
+                      >
                         <stop offset="0%" stopColor="#00d4ff" />
                         <stop offset="100%" stopColor="#0ea5e9" />
                       </linearGradient>
                     </defs>
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-cyan-400">{lang.level}%</span>
+                    <span className="text-sm font-semibold text-cyan-400">
+                      {lang.level}%
+                    </span>
                   </div>
                 </div>
                 <div className="text-white font-medium group-hover:text-cyan-400 transition-colors duration-300">
