@@ -66,7 +66,7 @@ export const Experience = () => {
   const entrepreneurialExperience = [
     {
       title: "Founder & CTO",
-      company: "MokshMetrics",
+      company: "MokshaMetrics",
       period: "2024 - Present",
       type: "Entrepreneurial",
       link: "https://mokshametrics.com/",

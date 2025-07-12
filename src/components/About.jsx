@@ -65,7 +65,7 @@ export const About = () => {
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
               Beyond technical work, I'm an entrepreneur who founded:
-              <br />• <strong className="text-cyan-400">MokshMetrics</strong> -
+              <br />• <strong className="text-cyan-400">MokshaMetrics</strong> -
               A CRM platform empowering solopreneurs
               <br />• <strong className="text-cyan-400">
                 Easel to Screen

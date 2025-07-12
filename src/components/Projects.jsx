@@ -34,7 +34,7 @@ export const Projects = () => {
       category: "Entrepreneurial Ventures",
       emoji: "💼",
       project: {
-        title: "MokshMetrics - CRM Platform",
+        title: "MoksahMetrics - CRM Platform",
         description:
           "No-fluff, easy-to-use CRM tool designed specifically for solopreneurs",
         techStack: [
