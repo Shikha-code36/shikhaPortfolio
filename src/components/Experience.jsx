@@ -67,7 +67,7 @@ export const Experience = () => {
     {
       title: "Founder & CTO",
       company: "MokshaMetrics",
-      period: "2024 - Present",
+      period: "2025 - Present",
       type: "Entrepreneurial",
       link: "https://mokshametrics.com/",
       achievements: [
@@ -79,9 +79,9 @@ export const Experience = () => {
     {
       title: "Founder",
       company: "Easel to Screen",
-      period: "Ongoing",
+      period: "2023 - Present",
       type: "Entrepreneurial",
-      link: "https://easeltoscreen.com",
+      link: "https://easeltoscreen.com/",
       achievements: [
         "Vision: Digital convergence of cinema, literature & music",
         "Community: Passionate discussions and collaborative exploration",
