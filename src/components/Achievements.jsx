@@ -30,21 +30,21 @@ export const Achievements = () => {
         "Enterprise-scale solutions serving millions of users",
         "Real-time systems processing high-frequency data",
         "AI/ML models deployed in production environments",
-        "Startup ventures from concept to market launch",
+        "Healthcare platform serving 50,000+ patients",
       ],
     },
   ];
 
   const metrics = [
     {
-      number: "5+",
+      number: "6+",
       label: "Years Experience",
       description: "Professional software development",
     },
     {
-      number: "2",
-      label: "Startups Founded",
-      description: "From concept to market",
+      number: "50+",
+      label: "Enterprise Clients",
+      description: "Served across AI platforms",
     },
     {
       number: "500+",
@@ -152,7 +152,7 @@ export const Achievements = () => {
               {
                 icon: "🚀",
                 title: "Technical CTO",
-                desc: "Startup to enterprise",
+                desc: "Idea to production",
               },
               {
                 icon: "👥",

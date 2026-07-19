@@ -31,32 +31,6 @@ export const Projects = () => {
       },
     },
     {
-      category: "Entrepreneurial Ventures",
-      emoji: "💼",
-      project: {
-        title: "MokshaMetrics - CRM Platform",
-        description:
-          "No-fluff, easy-to-use CRM tool designed specifically for solopreneurs",
-        techStack: [
-          "React",
-          "Node.js",
-          "PostgreSQL",
-          "API Integration",
-          "SaaS",
-        ],
-        features: [
-          "Client timeline management system",
-          "Calendar synchronization & integrations",
-          "Workflow automations & triggers",
-          "Invoice tracking & financial management",
-          "Simplified UX for individual entrepreneurs",
-        ],
-        website: "https://mokshametrics.com/",
-        impact:
-          "Empowering solopreneurs with streamlined business management tools",
-      },
-    },
-    {
       category: "AI & Machine Learning",
       emoji: "🤖",
       project: {

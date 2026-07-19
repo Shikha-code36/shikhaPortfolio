@@ -1,5 +1,5 @@
 import React from "react";
-import { TrendingUp, Users, Rocket, Award } from "lucide-react";
+import { TrendingUp, Users, Palette, Award } from "lucide-react";
 
 export const About = () => {
   const highlights = [
@@ -16,10 +16,10 @@ export const About = () => {
         "Working with Fortune 500 clients including American Express",
     },
     {
-      icon: Rocket,
-      title: "Entrepreneurial Spirit",
+      icon: Palette,
+      title: "Creative Interests",
       description:
-        "Founded 2 startups combining technical expertise with business vision",
+        "Exploring cinema, literature & music through Easel to Screen, and learning hip-hop in my free time",
     },
     {
       icon: Award,
@@ -30,10 +30,10 @@ export const About = () => {
   ];
 
   const stats = [
-    { number: "5+", label: "Years Experience" },
+    { number: "6+", label: "Years Experience" },
     { number: "500+", label: "LeetCode Problems" },
     { number: "10+", label: "Technologies Mastered" },
-    { number: "2", label: "Startups Founded" },
+    { number: "50+", label: "Enterprise Clients Served" },
   ];
 
   return (
@@ -51,31 +51,31 @@ export const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate software engineer with 5+ years of experience
+              I'm a passionate software engineer with 6+ years of experience
               building scalable systems and architecting enterprise solutions.
               My expertise spans from high-frequency trading systems to
               AI-powered platforms, always focusing on performance, scalability,
               and business impact.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Currently working as a Senior Technical Consultant at EY with
-              Fortune 500 clients (American Express), I specialize in designing
-              microservices architectures, implementing AI/ML solutions, and
-              building real-time data processing systems.
+              Currently working as a Software Engineer 2 at American Express,
+              I focus on AI agent orchestration using MCP (Model Context
+              Protocol), NLP pipelines, and intelligent automation for
+              financial services. Previously, as a Senior Technical Consultant
+              at EY, I specialized in designing microservices architectures,
+              implementing AI/ML solutions, and building real-time data
+              processing systems for Fortune 500 clients.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Beyond technical work, I'm an entrepreneur who founded:
-              <br />• <strong className="text-cyan-400">MokshaMetrics</strong> -
-              A CRM platform empowering solopreneurs
-              <br />• <strong className="text-cyan-400">
-                Easel to Screen
-              </strong>{" "}
-              - A digital space where cinema, literature, and music converge
+              Beyond technical work, I have a creative side — I'm passionate
+              about <strong className="text-cyan-400">Easel to Screen</strong>,
+              a digital space where cinema, literature, and music converge,
+              and in my free time, I've been learning hip-hop.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              This combination of technical expertise and creative vision allows
-              me to build solutions that are not only scalable and efficient,
-              but also meaningful and engaging for users.
+              This combination of technical expertise and creative curiosity
+              allows me to build solutions that are not only scalable and
+              efficient, but also meaningful and engaging for users.
             </p>
           </div>
 

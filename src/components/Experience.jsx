@@ -1,12 +1,22 @@
 import React from "react";
-import { Building, Calendar, ExternalLink } from "lucide-react";
+import { Building, Calendar } from "lucide-react";
 
 export const Experience = () => {
   const corporateExperience = [
     {
+      title: "Software Engineer 2",
+      company: "American Express",
+      period: "Dec 2025 - Present",
+      type: "Corporate",
+      achievements: [
+        "Developed MCP (Model Context Protocol) tool for enhanced AI agent orchestration, enabling financial insights generation across enterprise systems",
+        "Engineered intelligent automation solutions for financial services, implementing NLP pipelines and data transformation workflows using GPT-4 and LangChain",
+      ],
+    },
+    {
       title: "Senior Technical Consultant",
       company: "EY India",
-      period: "Jul 2024 - Present",
+      period: "Jul 2024 - Dec 2025",
       type: "Corporate",
       achievements: [
         "Engineered enterprise-scale NLP pipeline using GPT-4 and LangChain for financial services",
@@ -40,52 +50,14 @@ export const Experience = () => {
       ],
     },
     {
-      title: "Backend Developer",
-      company: "Scaleup",
-      period: "July 2021 - Sept 2021",
-      type: "Corporate",
-      achievements: [
-        "Engineered backend services using Django and PostgreSQL",
-        "Optimized complex SQL queries and database performance",
-        "Implemented automated testing infrastructure using pytest",
-      ],
-    },
-    {
       title: "Network Analyst",
-      company: "HCL Technologies",
-      period: "Jun 2020 - Jul 2021",
+      company: "Collabera (HCL)",
+      period: "Jun 2020 - Aug 2021",
       type: "Corporate",
       achievements: [
         "Led client issue resolution using ServiceNow",
         "Provided technical support and implemented solutions",
         "Foundation in enterprise IT operations",
-      ],
-    },
-  ];
-
-  const entrepreneurialExperience = [
-    {
-      title: "Founder & CTO",
-      company: "MokshaMetrics",
-      period: "2025 - Present",
-      type: "Entrepreneurial",
-      link: "https://mokshametrics.com/",
-      achievements: [
-        "Product: No-fluff CRM for solopreneurs",
-        "Features: Client timeline management, calendar sync, automations, invoice tracking",
-        "Impact: Streamlining business operations for solo entrepreneurs",
-      ],
-    },
-    {
-      title: "Founder",
-      company: "Easel to Screen",
-      period: "2023 - Present",
-      type: "Entrepreneurial",
-      link: "https://easeltoscreen.com/",
-      achievements: [
-        "Vision: Digital convergence of cinema, literature & music",
-        "Community: Passionate discussions and collaborative exploration",
-        "Mission: Where every artistic expression finds kindred spirits",
       ],
     },
   ];
@@ -144,61 +116,6 @@ export const Experience = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Entrepreneurial Experience */}
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-            <span className="text-2xl mr-3">🚀</span>
-            Entrepreneurial Experience
-          </h3>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {entrepreneurialExperience.map((venture, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300 group"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h4 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
-                      {venture.title}
-                    </h4>
-                    <p className="text-cyan-400 font-medium">
-                      {venture.company}
-                    </p>
-                  </div>
-                  {venture.link && (
-                    <a
-                      href={venture.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
-                </div>
-
-                <div className="flex items-center text-gray-400 mb-4">
-                  <Calendar size={16} className="mr-2" />
-                  <span className="text-sm">{venture.period}</span>
-                </div>
-
-                <ul className="space-y-2">
-                  {venture.achievements.map((achievement, achIndex) => (
-                    <li
-                      key={achIndex}
-                      className="text-gray-300 flex items-start"
-                    >
-                      <span className="text-cyan-400 mr-2 mt-2">•</span>
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>

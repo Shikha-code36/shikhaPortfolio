@@ -20,9 +20,9 @@ export const Hero = () => {
   }, []);
 
   const stats = [
-    { number: "5+", label: "Years Experience", suffix: "" },
+    { number: "6+", label: "Years Experience", suffix: "" },
     { number: "500+", label: "LeetCode Problems", suffix: "" },
-    { number: "2", label: "Startups Founded", suffix: "" },
+    { number: "50+", label: "Enterprise Clients", suffix: "" },
     { number: "500", label: "Fortune 500 Client", suffix: "" },
   ];
 
@@ -58,14 +58,13 @@ export const Hero = () => {
               <span className="animate-pulse">|</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Building Scalable Solutions for Enterprise & Startups
+              Building Scalable Solutions for Enterprise & AI Systems
             </p>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              5+ years crafting high-performance systems • AI/ML Integration
+              6+ years crafting high-performance systems • AI/ML Integration
               Specialist
               <br />
-              Microservices Architecture Expert • Entrepreneur & Technical
-              Leader
+              Microservices Architecture Expert • Technical Leader
             </p>
           </div>
 
