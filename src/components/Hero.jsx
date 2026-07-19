@@ -118,7 +118,7 @@ export const Hero = () => {
               View My Work
             </button>
             <a
-              href="https://drive.google.com/file/d/1FZedxZQdWLE4jJf7WqTh93PNn7xXC9YX/view?usp=sharing"
+              href="https://drive.google.com/file/d/1ykwJu52Iv21x5K3UXAg2p5tj5eMyrTZU/view"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl text-lg font-medium hover:bg-cyan-500 hover:text-white transform hover:scale-105 transition-all duration-300"

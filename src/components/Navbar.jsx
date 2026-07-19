@@ -56,7 +56,7 @@ export const Navbar = () => {
                 </button>
               ))}
               <a
-                href="https://drive.google.com/file/d/1FZedxZQdWLE4jJf7WqTh93PNn7xXC9YX/view?usp=sharing"
+                href="https://drive.google.com/file/d/1ykwJu52Iv21x5K3UXAg2p5tj5eMyrTZU/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 flex items-center space-x-2"
