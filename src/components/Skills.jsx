@@ -76,7 +76,7 @@ export const Skills = () => {
     {
       label: "Programming Languages",
       value: "8+",
-      description: "Languages mastered",
+      description: "Languages used",
     },
     { label: "Cloud Platforms", value: "3", description: "AWS, GCP, Azure" },
     {

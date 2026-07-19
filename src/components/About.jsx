@@ -32,7 +32,7 @@ export const About = () => {
   const stats = [
     { number: "6+", label: "Years Experience" },
     { number: "500+", label: "LeetCode Problems" },
-    { number: "10+", label: "Technologies Mastered" },
+    { number: "10+", label: "Technologies Used" },
     { number: "50+", label: "Enterprise Clients Served" },
   ];
 
