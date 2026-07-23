@@ -1,5 +1,14 @@
 import React from "react";
-import { TrendingUp, Users, Palette, Award } from "lucide-react";
+import {
+  TrendingUp,
+  Users,
+  Palette,
+  Award,
+  Layers,
+  Bot,
+  Zap,
+  GitBranch,
+} from "lucide-react";
 
 export const About = () => {
   const highlights = [
@@ -29,10 +38,27 @@ export const About = () => {
     },
   ];
 
-  const stats = [
-    { number: "6+", label: "Years Experience" },
-    { number: "500+", label: "LeetCode Problems" },
-    { number: "10+", label: "Technologies Used" },
+  const expertise = [
+    {
+      icon: Layers,
+      title: "System Design",
+      description: "Distributed & microservices architecture",
+    },
+    {
+      icon: Bot,
+      title: "AI Agent Tooling",
+      description: "MCP, LangChain, agent orchestration",
+    },
+    {
+      icon: Zap,
+      title: "High-Performance Systems",
+      description: "Low-latency, high-throughput engineering",
+    },
+    {
+      icon: GitBranch,
+      title: "Open Source",
+      description: "Published packages & indexed repos",
+    },
   ];
 
   return (
@@ -78,20 +104,23 @@ export const About = () => {
             </p>
           </div>
 
-          {/* Animated Statistics Grid */}
-          <div className="grid grid-cols-3 gap-6">
-            {stats.map((stat, index) => (
+          {/* Core Expertise */}
+          <div className="grid grid-cols-2 gap-4">
+            {expertise.map((item, index) => (
               <div
-                key={stat.label}
-                className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 text-center hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
+                key={item.title}
+                className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-5 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
-                  {stat.number}
+                <item.icon size={22} className="text-cyan-400 mb-3" />
+                <div className="text-white font-medium text-sm mb-1">
+                  {item.title}
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-gray-400 text-xs leading-relaxed">
+                  {item.description}
+                </div>
               </div>
             ))}
           </div>

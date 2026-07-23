@@ -19,9 +19,11 @@ export const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const stats = [
-    { number: "6+", label: "Years Experience", suffix: "" },
-    { number: "500+", label: "LeetCode Problems", suffix: "" },
+  const expertise = [
+    "System Architecture",
+    "AI Agent Orchestration",
+    "High-Performance Systems",
+    "Financial Tech",
   ];
 
   const socialLinks = [
@@ -66,24 +68,19 @@ export const Hero = () => {
             </p>
           </div>
 
-          {/* Animated Stats */}
-          <div className="grid grid-cols-2 gap-8 py-12 max-w-md mx-auto">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="group hover:scale-105 transition-transform duration-300"
+          {/* Core Expertise */}
+          <div className="flex flex-wrap justify-center gap-3 py-12 max-w-3xl mx-auto">
+            {expertise.map((item, index) => (
+              <span
+                key={item}
+                className="px-5 py-2.5 bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-full text-gray-200 text-sm md:text-base font-medium hover:border-cyan-400/40 hover:text-cyan-400 transition-all duration-300"
                 style={{
-                  animationDelay: `${index * 200}ms`,
+                  animationDelay: `${index * 150}ms`,
                   animation: "slideUp 0.8s ease-out forwards",
                 }}
               >
-                <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 transition-all duration-300">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
-                </div>
-              </div>
+                {item}
+              </span>
             ))}
           </div>
 
