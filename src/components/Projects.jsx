@@ -32,6 +32,34 @@ export const Projects = () => {
     },
     {
       category: "AI & Machine Learning",
+      emoji: "🧠",
+      project: {
+        title: "SmartEvict - Learned Cache Eviction for LLM Semantic Caches",
+        description:
+          "Cost-aware learned eviction policy for LLM semantic caches, replacing recency-based LRU/FIFO with a lightweight dueling DQN model",
+        techStack: [
+          "Python",
+          "Reinforcement Learning",
+          "FAISS",
+          "GPTCache",
+          "NumPy",
+          "Sentence Transformers",
+        ],
+        features: [
+          "Cold-RL adapted from CDN cache learning to semantic prompt-response caching",
+          "Lightweight dueling DQN policy engine (~9.5K parameters) trained offline",
+          "Cost-aware eviction using regeneration tokens, hit frequency, and staleness ratio",
+          "Deterministic LRU fallback on inference errors for production safety",
+          "Benchmarked on synthetic traffic and real LMSYS-Chat-1M traces against LRU and GDSF baselines",
+        ],
+        github:
+          "https://github.com/Shikha-code36/SmartEvict-Semantic-Cache-Eviction",
+        impact:
+          "Learned policy retained up to +16.7% more regeneration tokens than LRU on real LMSYS-Chat-1M traces, demonstrating that cost-aware caching can meaningfully cut redundant LLM inference",
+      },
+    },
+    {
+      category: "AI & Machine Learning",
       emoji: "🤖",
       project: {
         title: "Early Exit CNN Research",
@@ -78,31 +106,6 @@ export const Projects = () => {
         website: "https://hirelcube.com/",
         impact:
           "Enabling AI-powered interview preparation for thousands of job seekers",
-      },
-    },
-    {
-      category: "Data Engineering",
-      emoji: "📊",
-      project: {
-        title: "Real-time Data Streaming Pipeline",
-        description:
-          "Enterprise-scale data processing system with high-throughput capabilities",
-        techStack: [
-          "Apache Kafka",
-          "Apache Airflow",
-          "Python",
-          "ETL",
-          "Real-time Processing",
-        ],
-        features: [
-          "High-throughput data streaming (millions of events/second)",
-          "Fault-tolerant system design",
-          "Scalable pipeline architecture",
-          "Real-time analytics & monitoring",
-          "Enterprise-grade reliability (99.9% uptime)",
-        ],
-        impact:
-          "Processing millions of events per second with enterprise-grade reliability",
       },
     },
   ];

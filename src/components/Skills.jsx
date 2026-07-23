@@ -30,11 +30,12 @@ export const Skills = () => {
       icon: Brain,
       title: "AI & Machine Learning",
       skills: [
-        "LLM Integration: LangChain, OpenAI GPT-4",
-        "RAG Applications: Vector databases, FAISS",
+        "LLM Integration: LangChain, OpenAI API, LLaMA",
+        "Agent Tooling: MCP (Model Context Protocol), agent orchestration",
+        "LLM Observability: Langfuse, mem0",
+        "RAG Applications: Vector databases, FAISS, pgvector",
         "Deep Learning: PyTorch, CNN optimization",
         "Research: Reinforcement Learning, Neural Networks",
-        "Production AI: Model deployment, inference optimization",
       ],
     },
     {
@@ -155,79 +156,6 @@ export const Skills = () => {
           ))}
         </div>
 
-        {/* Programming Languages Visualization */}
-        <div className="mt-16 bg-gradient-to-br from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Programming Languages & Technologies
-          </h3>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {[
-              { name: "Python", level: 95, color: "from-blue-400 to-blue-600" },
-              {
-                name: "JavaScript",
-                level: 90,
-                color: "from-yellow-400 to-yellow-600",
-              },
-              { name: "C++", level: 85, color: "from-red-400 to-red-600" },
-              { name: "Go", level: 80, color: "from-cyan-400 to-cyan-600" },
-              {
-                name: "TypeScript",
-                level: 88,
-                color: "from-blue-400 to-blue-600",
-              },
-              {
-                name: "PostgreSQL",
-                level: 92,
-                color: "from-indigo-400 to-indigo-600",
-              },
-            ].map((lang, index) => (
-              <div key={lang.name} className="text-center group">
-                <div className="relative w-16 h-16 mx-auto mb-3">
-                  <svg
-                    className="w-16 h-16 transform -rotate-90"
-                    viewBox="0 0 36 36"
-                  >
-                    <path
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      fill="none"
-                      stroke="rgba(156, 163, 175, 0.2)"
-                      strokeWidth="2"
-                    />
-                    <path
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                      fill="none"
-                      stroke="url(#gradient)"
-                      strokeWidth="2"
-                      strokeDasharray={`${lang.level}, 100`}
-                      className="transition-all duration-1000 ease-out"
-                      style={{
-                        animationDelay: `${index * 200}ms`,
-                      }}
-                    />
-                    <defs>
-                      <linearGradient
-                        id="gradient"
-                        className={`bg-gradient-to-r ${lang.color}`}
-                      >
-                        <stop offset="0%" stopColor="#00d4ff" />
-                        <stop offset="100%" stopColor="#0ea5e9" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-cyan-400">
-                      {lang.level}%
-                    </span>
-                  </div>
-                </div>
-                <div className="text-white font-medium group-hover:text-cyan-400 transition-colors duration-300">
-                  {lang.name}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

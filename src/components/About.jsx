@@ -13,7 +13,7 @@ export const About = () => {
       icon: Users,
       title: "Enterprise Expertise",
       description:
-        "Working with Fortune 500 clients including American Express",
+        "Building AI agent tooling and financial automation systems at American Express",
     },
     {
       icon: Palette,
@@ -33,7 +33,6 @@ export const About = () => {
     { number: "6+", label: "Years Experience" },
     { number: "500+", label: "LeetCode Problems" },
     { number: "10+", label: "Technologies Used" },
-    { number: "50+", label: "Enterprise Clients Served" },
   ];
 
   return (
@@ -64,7 +63,7 @@ export const About = () => {
               financial services. Previously, as a Senior Technical Consultant
               at EY, I specialized in designing microservices architectures,
               implementing AI/ML solutions, and building real-time data
-              processing systems for Fortune 500 clients.
+              processing systems for enterprise clients.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
               Beyond technical work, I have a creative side — I'm passionate
@@ -80,7 +79,7 @@ export const About = () => {
           </div>
 
           {/* Animated Statistics Grid */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}

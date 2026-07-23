@@ -242,8 +242,13 @@ export const GitHubProjects = () => {
             Featured Repositories
           </h3>
 
+          <p className="text-gray-400 text-sm mb-6">
+            A few featured repos below — I have many more on GitHub covering
+            AI/ML research, tutorials, and experiments.
+          </p>
+
           <div className="grid md:grid-cols-2 gap-4">
-            {filteredRepos.slice(0, 12).map((repo) => (
+            {filteredRepos.slice(0, 6).map((repo) => (
               <div
                 key={repo.id}
                 className="group bg-gradient-to-r from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-gray-700/50 rounded-lg p-4 hover:border-cyan-400/40 transition-all duration-300"
@@ -299,19 +304,17 @@ export const GitHubProjects = () => {
             ))}
           </div>
 
-          {filteredRepos.length > 12 && (
-            <div className="text-center mt-8">
-              <a
-                href="https://github.com/Shikha-code36?tab=repositories"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
-              >
-                <span>View {filteredRepos.length - 12} more repositories</span>
-                <ArrowRight size={16} />
-              </a>
-            </div>
-          )}
+          <div className="text-center mt-8">
+            <a
+              href="https://github.com/Shikha-code36?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+            >
+              <span>View all repositories on GitHub</span>
+              <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -22,8 +22,6 @@ export const Hero = () => {
   const stats = [
     { number: "6+", label: "Years Experience", suffix: "" },
     { number: "500+", label: "LeetCode Problems", suffix: "" },
-    { number: "50+", label: "Enterprise Clients", suffix: "" },
-    { number: "500", label: "Fortune 500 Client", suffix: "" },
   ];
 
   const socialLinks = [
@@ -69,7 +67,7 @@ export const Hero = () => {
           </div>
 
           {/* Animated Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12">
+          <div className="grid grid-cols-2 gap-8 py-12 max-w-md mx-auto">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}

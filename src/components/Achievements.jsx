@@ -8,7 +8,6 @@ export const Achievements = () => {
       icon: Award,
       items: [
         "SPOT Award for outstanding performance and delivery",
-        "Enterprise Client Success with Fortune 500 companies",
         "Technical Leadership in system architecture decisions",
         "Mentoring junior developers and team collaboration",
       ],
@@ -27,10 +26,9 @@ export const Achievements = () => {
       category: "Business Impact",
       icon: Target,
       items: [
-        "Enterprise-scale solutions serving millions of users",
         "Real-time systems processing high-frequency data",
         "AI/ML models deployed in production environments",
-        "Healthcare platform serving 50,000+ patients",
+        "Enterprise automation solutions for financial services",
       ],
     },
   ];
@@ -42,19 +40,9 @@ export const Achievements = () => {
       description: "Professional software development",
     },
     {
-      number: "50+",
-      label: "Enterprise Clients",
-      description: "Served across AI platforms",
-    },
-    {
       number: "500+",
       label: "Problems Solved",
       description: "LeetCode algorithmic challenges",
-    },
-    {
-      number: "99.9%",
-      label: "System Uptime",
-      description: "Enterprise-grade reliability",
     },
   ];
 
@@ -71,7 +59,7 @@ export const Achievements = () => {
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 gap-6 mb-16 max-w-xl mx-auto">
           {metrics.map((metric, index) => (
             <div
               key={metric.label}

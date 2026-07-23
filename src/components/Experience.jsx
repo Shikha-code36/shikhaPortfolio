@@ -10,7 +10,8 @@ export const Experience = () => {
       type: "Corporate",
       achievements: [
         "Developed MCP (Model Context Protocol) tool for enhanced AI agent orchestration, enabling financial insights generation across enterprise systems",
-        "Engineered intelligent automation solutions for financial services, implementing NLP pipelines and data transformation workflows using GPT-4 and LangChain",
+        "Engineered intelligent automation solutions for financial services, implementing NLP pipelines and data transformation workflows using OpenAI API, LLaMA, and LangChain",
+        "Used Langfuse for LLM observability and tracing, and mem0 for agent memory management",
       ],
     },
     {
@@ -19,7 +20,7 @@ export const Experience = () => {
       period: "Jul 2024 - Dec 2025",
       type: "Corporate",
       achievements: [
-        "Engineered enterprise-scale NLP pipeline using GPT-4 and LangChain for financial services",
+        "Engineered enterprise-scale NLP pipeline using OpenAI API and LangChain for financial services",
         "Architected end-to-end intelligent automation solution with Airflow DAGs and LUMI Data Transformation",
         "Implemented advanced vector-based data retrieval system using pgvector",
         "Built robust security architecture with OAuth2 and role-based access control",
