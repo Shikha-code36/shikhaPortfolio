@@ -9,9 +9,11 @@ export const Experience = () => {
       period: "Dec 2025 - Present",
       type: "Corporate",
       achievements: [
-        "Developed MCP (Model Context Protocol) tool for enhanced AI agent orchestration, enabling financial insights generation across enterprise systems",
-        "Engineered intelligent automation solutions for financial services, implementing NLP pipelines and data transformation workflows using OpenAI API, LLaMA, and LangChain",
-        "Used Langfuse for LLM observability and tracing, and mem0 for agent memory management",
+        "Built and deployed a custom MCP (Model Context Protocol) server to orchestrate LLM workflows and manage contextual data interactions, enabling financial insights generation across enterprise systems",
+        "Designed and developed an AI-powered agent using OpenBB for intelligent financial data analysis, using OpenAI API, LLaMA, and LangChain",
+        "Engineered a graph-based data layer using Apache AGE on PostgreSQL to model and query complex relationships efficiently",
+        "Integrated Langfuse for LLM observability and tracing, and mem0 for agent memory management",
+        "Implemented end-to-end CI/CD pipelines using Jenkins and XL Release (XLR) for reliable, automated deployments",
       ],
     },
     {
@@ -56,9 +58,8 @@ export const Experience = () => {
       period: "Jun 2020 - Aug 2021",
       type: "Corporate",
       achievements: [
-        "Led client issue resolution using ServiceNow",
-        "Provided technical support and implemented solutions",
-        "Foundation in enterprise IT operations",
+        "Optimized complex SQL queries and implemented advanced database indexing strategies, improving data retrieval efficiency",
+        "Managed technical support operations using ServiceNow ITSM, implementing automated incident management workflows and standardized troubleshooting documentation",
       ],
     },
   ];

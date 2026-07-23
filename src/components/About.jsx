@@ -84,9 +84,10 @@ export const About = () => {
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
               Currently working as a Software Engineer 2 at American Express,
-              I focus on AI agent orchestration using MCP (Model Context
-              Protocol), NLP pipelines, and intelligent automation for
-              financial services. Previously, as a Senior Technical Consultant
+              I build a custom MCP (Model Context Protocol) server for AI
+              agent orchestration, an OpenBB-powered financial insights agent,
+              and a graph-based data layer using Apache AGE. Previously, as a
+              Senior Technical Consultant
               at EY, I specialized in designing microservices architectures,
               implementing AI/ML solutions, and building real-time data
               processing systems for enterprise clients.

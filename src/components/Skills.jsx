@@ -31,7 +31,7 @@ export const Skills = () => {
       title: "AI & Machine Learning",
       skills: [
         "LLM Integration: LangChain, OpenAI API, LLaMA",
-        "Agent Tooling: MCP (Model Context Protocol), agent orchestration",
+        "Agent Tooling: MCP (Model Context Protocol), OpenBB, agent orchestration",
         "LLM Observability: Langfuse, mem0",
         "RAG Applications: Vector databases, FAISS, pgvector",
         "Deep Learning: PyTorch, CNN optimization",
@@ -45,7 +45,7 @@ export const Skills = () => {
         "AWS: EC2, S3, Lambda, SQS",
         "GCP: Cloud platform services",
         "Containerization: Docker, Kubernetes",
-        "CI/CD: Automated deployment pipelines",
+        "CI/CD: Jenkins, XL Release (XLR)",
         "Infrastructure: Infrastructure as Code",
       ],
     },
@@ -55,9 +55,9 @@ export const Skills = () => {
       skills: [
         "Streaming: Apache Kafka, real-time processing",
         "Orchestration: Apache Airflow, workflow management",
+        "Graph Data: Apache AGE on PostgreSQL",
         "Communication: WebSocket, real-time systems",
         "ETL: Data pipelines, transformation",
-        "Analytics: Performance monitoring, metrics",
       ],
     },
     {
