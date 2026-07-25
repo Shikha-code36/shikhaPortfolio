@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
+import { Publications } from "./components/Publications";
 import { GitHubProjects } from "./components/GitHubProjects";
 import { EcosystemPresence } from "./components/EcosystemPresence";
 import { Skills } from "./components/Skills";
@@ -23,6 +24,7 @@ function App() {
         <About />
         <Experience />
         <Projects />
+        <Publications />
         <GitHubProjects />
         <EcosystemPresence />
         <Skills />
