@@ -54,8 +54,6 @@ export const Projects = () => {
         ],
         github:
           "https://github.com/Shikha-code36/SmartEvict-Semantic-Cache-Eviction",
-        blog: "https://pandeyshikha075.medium.com/i-built-a-learned-cache-eviction-policy-a-one-line-formula-from-1998-beat-it-11ea127a809b?sharedUserId=pandeyshikha075",
-        paper: "https://zenodo.org/records/21553138",
         impact:
           "Learned policy retained up to +16.7% more regeneration tokens than LRU on real LMSYS-Chat-1M traces, demonstrating that cost-aware caching can meaningfully cut redundant LLM inference",
       },
@@ -215,19 +213,6 @@ export const Projects = () => {
                       >
                         <span>📖</span>
                         <span>Read Blog Post</span>
-                        <ExternalLink size={16} />
-                      </a>
-                    )}
-
-                    {item.project.paper && (
-                      <a
-                        href={item.project.paper}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                      >
-                        <span>📄</span>
-                        <span>Read Paper (Zenodo)</span>
                         <ExternalLink size={16} />
                       </a>
                     )}
