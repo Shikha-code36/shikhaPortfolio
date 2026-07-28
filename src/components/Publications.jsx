@@ -13,7 +13,7 @@ export const Publications = () => {
       finding:
         "Cost-aware policies—learned and heuristic alike—consistently outperform recency-only baselines, but strong heuristics like GDSF remain highly competitive with, and often exceed, the learned policy. Eviction policy choice should depend on measurable workload characteristics such as reuse density and cache pressure.",
       links: [
-        { label: "Read on Zenodo", href: "https://zenodo.org/records/21553138" },
+        { label: "Read on Zenodo", href: "https://zenodo.org/records/21643364" },
         {
           label: "Read the Blog Post",
           href: "https://pandeyshikha075.medium.com/i-built-a-learned-cache-eviction-policy-a-one-line-formula-from-1998-beat-it-11ea127a809b?sharedUserId=pandeyshikha075",
