@@ -20,10 +20,10 @@ export const GitHubProjects = () => {
   const fetchRepositories = async () => {
     try {
       const response = await fetch(
-        "https://api.github.com/users/Shikha-code36/repos?sort=updated&per_page=10"
+        "https://api.github.com/users/Shikha-code36/repos?sort=updated&per_page=100"
       );
       const data = await response.json();
-      setRepositories(data);
+      setRepositories(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching repositories:", error);
     } finally {
@@ -32,7 +32,7 @@ export const GitHubProjects = () => {
   };
 
   // Get top 5 most starred repositories
-  const topStarredRepos = repositories
+  const topStarredRepos = [...repositories]
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 5);
 
