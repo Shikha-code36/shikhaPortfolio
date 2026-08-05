@@ -8,10 +8,18 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const PINNED_REPO_NAMES = [
+  "early-exit-cnn",
+  "SmartEvict-Semantic-Cache-Eviction",
+  "assembly-ARM-tutorial",
+  "ArbiSim-A-Real-Time-Arbitrage-Detection-System",
+  "brinkline",
+  "golang-crud-rest-api-gin",
+];
+
 export const GitHubProjects = () => {
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     fetchRepositories();
@@ -36,15 +44,9 @@ export const GitHubProjects = () => {
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 5);
 
-  const languages = [
-    "all",
-    ...new Set(repositories.map((repo) => repo.language).filter(Boolean)),
-  ];
-
-  const filteredRepos = repositories.filter((repo) => {
-    if (filter === "all") return true;
-    return repo.language === filter;
-  });
+  const pinnedRepos = PINNED_REPO_NAMES.map((name) =>
+    repositories.find((repo) => repo.name === name)
+  ).filter(Boolean);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -218,37 +220,20 @@ export const GitHubProjects = () => {
           </div>
         </div>
 
-        {/* Language Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {languages.map((lang) => (
-            <button
-              key={lang}
-              onClick={() => setFilter(lang)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                filter === lang
-                  ? "bg-cyan-500 text-white"
-                  : "bg-slate-800/50 text-gray-400 hover:bg-slate-700/50 hover:text-cyan-400"
-              }`}
-            >
-              {lang === "all" ? "All" : lang}
-            </button>
-          ))}
-        </div>
-
-        {/* All Repositories */}
+        {/* Pinned Repositories */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Github className="text-gray-400 mr-3" size={24} />
-            Featured Repositories
+            Pinned Repositories
           </h3>
 
           <p className="text-gray-400 text-sm mb-6">
-            A few featured repos below — I have many more on GitHub covering
-            AI/ML research, tutorials, and experiments.
+            Repos I've pinned on GitHub — I have many more covering AI/ML
+            research, tutorials, and experiments.
           </p>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {filteredRepos.slice(0, 6).map((repo) => (
+            {pinnedRepos.map((repo) => (
               <div
                 key={repo.id}
                 className="group bg-gradient-to-r from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-gray-700/50 rounded-lg p-4 hover:border-cyan-400/40 transition-all duration-300"
