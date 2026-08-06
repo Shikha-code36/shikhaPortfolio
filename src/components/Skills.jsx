@@ -89,13 +89,13 @@ export const Skills = () => {
           {technicalStats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`px-5 py-5 bg-schema-raised ${
+              className={`px-5 py-5 bg-schema-raised min-w-0 ${
                 i !== technicalStats.length - 1
                   ? "border-r border-schema-border"
                   : ""
               }`}
             >
-              <div className="text-schema-faint text-[10px] uppercase tracking-wider mb-2">
+              <div className="text-schema-faint text-[10px] uppercase tracking-wider mb-2 break-words">
                 {stat.label}
               </div>
               <div className="text-2xl font-bold text-schema-accent mb-1">
@@ -110,7 +110,7 @@ export const Skills = () => {
 
         {/* Skills as schema table */}
         <div className="border border-schema-border rounded-lg overflow-hidden">
-          <div className="grid grid-cols-[220px_1fr] text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
+          <div className="hidden md:grid grid-cols-[220px_1fr] text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
             <div className="px-5 py-3 border-r border-schema-border">
               category
             </div>
@@ -121,20 +121,20 @@ export const Skills = () => {
               key={category.title}
               className="grid grid-cols-1 md:grid-cols-[220px_1fr] border-b border-schema-soft last:border-b-0 bg-schema-raised"
             >
-              <div className="px-5 py-4 border-r border-schema-soft flex items-start gap-2.5">
+              <div className="px-5 py-4 md:border-r border-schema-soft flex items-start gap-2.5 min-w-0">
                 <category.icon
                   size={16}
                   className="text-schema-accent mt-0.5 flex-shrink-0"
                 />
-                <span className="text-schema-heading text-sm font-medium">
+                <span className="text-schema-heading text-sm font-medium break-words">
                   {category.title}
                 </span>
               </div>
-              <div className="px-5 py-4 flex flex-wrap gap-2">
+              <div className="px-5 py-4 flex flex-wrap gap-2 min-w-0">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs px-2.5 py-1.5 rounded border border-schema-border text-schema-dim"
+                    className="text-xs px-2.5 py-1.5 rounded border border-schema-border text-schema-dim break-words"
                   >
                     {skill}
                   </span>

@@ -57,7 +57,8 @@ export const Hero = () => {
         </p>
 
         <div className="border border-schema-border rounded-lg overflow-hidden mb-8">
-          <div className="grid grid-cols-3 text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
+          {/* header row: desktop only */}
+          <div className="hidden sm:grid grid-cols-[160px_100px_1fr] text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
             <div className="px-4 py-2 border-r border-schema-border">column</div>
             <div className="px-4 py-2 border-r border-schema-border">type</div>
             <div className="px-4 py-2">value</div>
@@ -74,33 +75,40 @@ export const Hero = () => {
               "https://github.com/Shikha-code36/slimybug",
             ],
             ["status", "enum", "open_to_work"],
-          ].map(([col, type, val, href]) => (
-            <div
-              key={col}
-              className="grid grid-cols-3 text-sm border-b border-schema-soft last:border-b-0"
-            >
-              <div className="px-4 py-2.5 border-r border-schema-soft text-schema-accent">
-                {col}
+          ].map(([col, type, val, href]) => {
+            const value = href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-schema-accent hover:underline"
+              >
+                {val} ↗
+              </a>
+            ) : (
+              val
+            );
+
+            return (
+              <div
+                key={col}
+                className="sm:grid sm:grid-cols-[160px_100px_1fr] text-sm border-b border-schema-soft last:border-b-0"
+              >
+                <div className="flex items-center gap-2 px-4 pt-2.5 sm:pt-2.5 sm:pb-2.5 sm:border-r border-schema-soft text-schema-accent min-w-0 break-words">
+                  {col}
+                  <span className="sm:hidden text-schema-amber text-xs normal-case">
+                    · {type}
+                  </span>
+                </div>
+                <div className="hidden sm:block px-4 py-2.5 border-r border-schema-soft text-schema-amber min-w-0 break-words">
+                  {type}
+                </div>
+                <div className="px-4 pb-2.5 pt-1 sm:py-2.5 text-schema-text min-w-0 break-words">
+                  {value}
+                </div>
               </div>
-              <div className="px-4 py-2.5 border-r border-schema-soft text-schema-amber">
-                {type}
-              </div>
-              <div className="px-4 py-2.5 text-schema-text">
-                {href ? (
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-schema-accent hover:underline"
-                  >
-                    {val} ↗
-                  </a>
-                ) : (
-                  val
-                )}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="text-schema-dim text-sm mb-10">);</div>
 
