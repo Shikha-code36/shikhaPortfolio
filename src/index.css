@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
+    monospace;
+  background: #0b0e13;
+}
+
+::selection {
+  background: #2c5a4c;
+  color: #f2f5f8;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0e13;
+}
+::-webkit-scrollbar-thumb {
+  background: #232833;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2c5a4c;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+.caret-blink {
+  animation: blink-caret 1s steps(1) infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}

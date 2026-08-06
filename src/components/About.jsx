@@ -9,6 +9,7 @@ import {
   Zap,
   GitBranch,
 } from "lucide-react";
+import { SectionHeader, Card } from "./shared/SectionHeader";
 
 export const About = () => {
   const highlights = [
@@ -51,8 +52,8 @@ export const About = () => {
     },
     {
       icon: Zap,
-      title: "High-Performance Systems",
-      description: "Low-latency, high-throughput engineering",
+      title: "Caching & DB Internals",
+      description: "Low-latency reads, cache eviction, indexing",
     },
     {
       icon: GitBranch,
@@ -64,86 +65,92 @@ export const About = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              The Story Behind the Code
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-        </div>
+        <SectionHeader
+          file="about.md"
+          title="The Story Behind the Code"
+          subtitle="6+ years building the systems that sit between a request and the data it needs."
+        />
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate software engineer with 6+ years of experience
-              building scalable systems and architecting enterprise solutions.
-              My expertise spans from high-frequency trading systems to
-              AI-powered platforms, always focusing on performance, scalability,
-              and business impact.
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+          <div className="space-y-5 text-schema-dim leading-relaxed">
+            <p>
+              I'm a backend engineer with 6+ years of experience building
+              scalable systems and architecting enterprise solutions. My
+              expertise spans from high-frequency trading systems to
+              AI-powered platforms — but the thread that runs through all of
+              it is a deep interest in{" "}
+              <strong className="text-schema-accent">
+                databases, caching, and distributed systems
+              </strong>
+              : how data is stored, indexed, evicted, and served fast — and
+              what actually happens to a system under real load. It's why I
+              spend my free time running failure-injection experiments in{" "}
+              <a
+                href="https://github.com/Shikha-code36/slimybug"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-schema-accent hover:underline"
+              >
+                SlimyBug
+              </a>
+              , a lab for finding exactly where a service stops degrading
+              gracefully — connection pool saturation, retry amplification,
+              circuit breakers, admission control — and why.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p>
               Currently working as a Software Engineer 2 at American Express,
               I build a custom MCP (Model Context Protocol) server for AI
               agent orchestration, an OpenBB-powered financial insights agent,
               and a graph-based data layer using Apache AGE. Previously, as a
-              Senior Technical Consultant
-              at EY, I specialized in designing microservices architectures,
-              implementing AI/ML solutions, and building real-time data
-              processing systems for enterprise clients.
+              Senior Technical Consultant at EY, I specialized in designing
+              microservices architectures, implementing AI/ML solutions, and
+              building real-time data processing systems for enterprise
+              clients.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p>
               Beyond technical work, I have a creative side — I'm passionate
-              about <strong className="text-cyan-400">Easel to Screen</strong>,
+              about{" "}
+              <strong className="text-schema-accent">Easel to Screen</strong>,
               a digital space where cinema, literature, and music converge,
               and in my free time, I've been learning hip-hop.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              This combination of technical expertise and creative curiosity
-              allows me to build solutions that are not only scalable and
-              efficient, but also meaningful and engaging for users.
+            <p>
+              This combination of technical depth and creative curiosity
+              allows me to build systems that are not only fast and reliable,
+              but meaningful for the people who use them.
             </p>
           </div>
 
           {/* Core Expertise */}
-          <div className="grid grid-cols-2 gap-4">
-            {expertise.map((item, index) => (
-              <div
-                key={item.title}
-                className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-5 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <item.icon size={22} className="text-cyan-400 mb-3" />
-                <div className="text-white font-medium text-sm mb-1">
+          <div className="grid grid-cols-2 gap-3">
+            {expertise.map((item) => (
+              <Card key={item.title} className="p-5">
+                <item.icon size={20} className="text-schema-accent mb-3" />
+                <div className="text-schema-heading font-medium text-sm mb-1">
                   {item.title}
                 </div>
-                <div className="text-gray-400 text-xs leading-relaxed">
+                <div className="text-schema-faint text-xs leading-relaxed">
                   {item.description}
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {highlights.map((highlight, index) => (
-            <div
-              key={highlight.title}
-              className="group bg-gradient-to-br from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <highlight.icon size={24} className="text-cyan-400" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {highlights.map((highlight) => (
+            <Card key={highlight.title} className="p-6">
+              <div className="w-10 h-10 rounded border border-schema-border flex items-center justify-center mb-4">
+                <highlight.icon size={18} className="text-schema-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-schema-heading font-semibold mb-2">
                 {highlight.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-schema-faint text-sm leading-relaxed">
                 {highlight.description}
               </p>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

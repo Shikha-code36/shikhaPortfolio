@@ -16,7 +16,7 @@ import { ParticleBackground } from "./components/ParticleBackground";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-schema-bg text-schema-text overflow-x-hidden font-mono">
       <ParticleBackground />
       <Navbar />
       <main className="relative z-10">

@@ -1,11 +1,39 @@
 import React from "react";
 import { ExternalLink, Github } from "lucide-react";
+import { SectionHeader, Tag, LinkButton } from "./shared/SectionHeader";
 
 export const Projects = () => {
   const projects = [
     {
+      category: "Distributed Systems",
+      hot: true,
+      status: "actively building",
+      project: {
+        title: "SlimyBug - Overload Experimentation for Distributed Systems",
+        description:
+          "Reproducible failure-injection lab that finds where a real service stops degrading gracefully, and why — connection pool saturation, retry amplification, circuit breakers, and admission control, measured end to end.",
+        techStack: [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "asyncpg",
+          "Toxiproxy",
+          "k6",
+          "Docker Compose",
+        ],
+        features: [
+          "Real request path: k6 load generator → Service A (retry client + circuit breaker) → Service B (bounded connection pool) → Toxiproxy-injected latency → PostgreSQL",
+          "10 closed experiments quantifying the connection-pool collapse boundary and how it shifts with pool size, retries, jitter, and admission control",
+          "Server-side admission control cut client-visible errors by roughly half versus a client-side circuit breaker at the same load",
+          "Reference-grade replication runs (30-50 repeated runs per claim) to separate a real effect from a lucky single run",
+        ],
+        github: "https://github.com/Shikha-code36/slimybug",
+        impact:
+          "A minimal circuit breaker cut load reaching a saturated database dependency by up to ~44% and client-visible errors by up to ~61 points — every recovery probe succeeded, confirming the collapse is a queueing effect, not a hard failure",
+      },
+    },
+    {
       category: "High-Performance Systems",
-      emoji: "🚀",
       project: {
         title: "ArbiSim - Cryptocurrency Arbitrage Detection",
         description:
@@ -31,8 +59,8 @@ export const Projects = () => {
       },
     },
     {
-      category: "AI & Machine Learning",
-      emoji: "🧠",
+      category: "Caching & AI",
+      hot: true,
       project: {
         title: "SmartEvict - Learned Cache Eviction for LLM Semantic Caches",
         description:
@@ -60,7 +88,6 @@ export const Projects = () => {
     },
     {
       category: "AI & Machine Learning",
-      emoji: "🤖",
       project: {
         title: "Early Exit CNN Research",
         description:
@@ -85,7 +112,6 @@ export const Projects = () => {
     },
     {
       category: "Enterprise Solutions",
-      emoji: "🏢",
       project: {
         title: "HirelCube - AI Interview Platform",
         description:
@@ -113,64 +139,59 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Innovation in Action
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-        </div>
+        <SectionHeader
+          file="projects.sql"
+          title="Innovation in Action"
+          subtitle="Systems built end-to-end — from low-latency engines to learned caching policies."
+        />
 
-        <div className="space-y-12">
+        <div className="space-y-6">
           {projects.map((item, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-500 transform hover:-translate-y-2"
+              className="bg-schema-raised border border-schema-border rounded-lg overflow-hidden hover:border-schema-accentdim transition-colors duration-300"
             >
-              <div className="mb-6">
-                <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-4">{item.emoji}</span>
-                  <h3 className="text-xl font-semibold text-cyan-400">
-                    {item.category}
-                  </h3>
+              <div className="px-6 py-4 bg-schema-raised2 border-b border-schema-border">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Tag hot={item.hot}>{item.category}</Tag>
+                  {item.status && (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-schema-accent">
+                      <span className="w-1.5 h-1.5 rounded-full bg-schema-accent animate-pulse" />
+                      {item.status}
+                    </span>
+                  )}
                 </div>
-
-                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-schema-heading mt-3">
                   {item.project.title}
-                </h4>
-
-                <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                </h3>
+                <p className="text-schema-dim text-sm mt-2 leading-relaxed">
                   {item.project.description}
                 </p>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-2 gap-8 px-6 py-6">
                 <div>
-                  <h5 className="text-lg font-semibold text-white mb-3">
-                    Tech Stack
+                  <h5 className="text-xs uppercase tracking-wider text-schema-faint mb-3">
+                    tech_stack
                   </h5>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {item.project.techStack.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30"
-                      >
-                        {tech}
-                      </span>
+                    {item.project.techStack.map((tech) => (
+                      <Tag key={tech}>{tech}</Tag>
                     ))}
                   </div>
 
-                  <h5 className="text-lg font-semibold text-white mb-3">
-                    Key Features
+                  <h5 className="text-xs uppercase tracking-wider text-schema-faint mb-3">
+                    key_features
                   </h5>
                   <ul className="space-y-2">
                     {item.project.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
-                        className="text-gray-300 flex items-start"
+                        className="text-schema-dim text-sm flex items-start"
                       >
-                        <span className="text-cyan-400 mr-2 mt-1">├──</span>
+                        <span className="text-schema-faint2 mr-2 mt-0.5">
+                          ├──
+                        </span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -178,51 +199,31 @@ export const Projects = () => {
                 </div>
 
                 <div>
-                  <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3 mb-6">
                     {item.project.github && (
-                      <a
-                        href={item.project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                      >
-                        <Github size={20} />
-                        <span>View on GitHub</span>
-                        <ExternalLink size={16} />
-                      </a>
+                      <LinkButton href={item.project.github}>
+                        <Github size={16} />
+                        <span>GitHub</span>
+                      </LinkButton>
                     )}
-
                     {item.project.website && (
-                      <a
-                        href={item.project.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                      >
-                        <ExternalLink size={20} />
-                        <span>Live Demo</span>
-                      </a>
-                    )}
-
-                    {item.project.blog && (
-                      <a
-                        href={item.project.blog}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
-                      >
-                        <span>📖</span>
-                        <span>Read Blog Post</span>
+                      <LinkButton href={item.project.website}>
                         <ExternalLink size={16} />
-                      </a>
+                        <span>Live Demo</span>
+                      </LinkButton>
+                    )}
+                    {item.project.blog && (
+                      <LinkButton href={item.project.blog}>
+                        <span>Blog Post</span>
+                      </LinkButton>
                     )}
                   </div>
 
-                  <div className="mt-6 p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20">
-                    <h5 className="text-sm font-semibold text-cyan-400 mb-2">
-                      Impact
+                  <div className="p-4 bg-schema-raised2 rounded-lg border border-schema-border">
+                    <h5 className="text-xs uppercase tracking-wider text-schema-accent mb-2">
+                      -- impact
                     </h5>
-                    <p className="text-gray-300 text-sm italic">
+                    <p className="text-schema-dim text-sm italic leading-relaxed">
                       "{item.project.impact}"
                     </p>
                   </div>

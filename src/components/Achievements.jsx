@@ -1,5 +1,6 @@
 import React from "react";
-import { Award, TrendingUp, Users, Target } from "lucide-react";
+import { Award, TrendingUp, Target } from "lucide-react";
+import { SectionHeader, Card } from "./shared/SectionHeader";
 
 export const Achievements = () => {
   const achievements = [
@@ -16,7 +17,7 @@ export const Achievements = () => {
       category: "Technical Achievements",
       icon: TrendingUp,
       items: [
-        "500+ LeetCode Problems solved demonstrating algorithmic expertise",
+        "LeetCode Knight — top-tier contest rank, 500+ problems solved",
         "Research Publication in AI/ML optimization strategies",
         "Open Source Contributions to developer community",
         "High-Performance Systems deployed in production environments",
@@ -36,87 +37,80 @@ export const Achievements = () => {
   const metrics = [
     {
       number: "6+",
-      label: "Years Experience",
+      label: "years_experience",
       description: "Professional software development",
     },
     {
-      number: "500+",
-      label: "Problems Solved",
-      description: "LeetCode algorithmic challenges",
+      number: "Knight",
+      label: "leetcode_rank",
+      description: "500+ problems solved",
     },
+  ];
+
+  const roles = [
+    { title: "System Architect", desc: "Enterprise-scale design" },
+    { title: "AI/ML Leader", desc: "Production AI systems" },
+    { title: "Technical CTO", desc: "Idea to production" },
+    { title: "Team Leader", desc: "Mentoring & guidance" },
+    { title: "Growth Driver", desc: "Business impact focus" },
   ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Milestones & Impact
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-        </div>
+        <SectionHeader file="milestones.log" title="Milestones & Impact" />
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 gap-6 mb-16 max-w-xl mx-auto">
-          {metrics.map((metric, index) => (
-            <div
-              key={metric.label}
-              className="text-center bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
+        <div className="grid grid-cols-2 gap-4 mb-16 max-w-xl">
+          {metrics.map((metric) => (
+            <Card key={metric.label} className="p-6">
+              <div className="text-3xl font-bold text-schema-accent mb-2">
                 {metric.number}
               </div>
-              <div className="text-white font-medium mb-1">{metric.label}</div>
-              <div className="text-gray-400 text-sm">{metric.description}</div>
-            </div>
+              <div className="text-schema-heading text-sm font-medium mb-1">
+                {metric.label}
+              </div>
+              <div className="text-schema-faint text-xs">
+                {metric.description}
+              </div>
+            </Card>
           ))}
         </div>
 
-        {/* Achievements Categories */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {achievements.map((category, index) => (
-            <div
-              key={category.category}
-              className="group bg-gradient-to-br from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8 hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                  <category.icon size={24} className="text-cyan-400" />
+        <div className="grid lg:grid-cols-3 gap-4">
+          {achievements.map((category) => (
+            <Card key={category.category} className="p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded border border-schema-border flex items-center justify-center flex-shrink-0">
+                  <category.icon size={18} className="text-schema-accent" />
                 </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-schema-heading font-semibold text-sm">
                   {category.category}
                 </h3>
               </div>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {category.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300"
+                    className="text-schema-dim text-sm flex items-start"
                   >
-                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">
-                      🏆
+                    <span className="text-schema-faint2 mr-2.5 mt-0.5 flex-shrink-0">
+                      ├──
                     </span>
                     <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
 
-        {/* Recognition Section */}
-        <div className="mt-16 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl p-8 border border-cyan-500/20">
+        <div className="mt-10 bg-schema-raised rounded-lg p-8 border border-schema-border">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-lg font-semibold text-schema-heading mb-3">
               Ready for Senior Technical Leadership Roles
             </h3>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-schema-dim text-sm max-w-3xl mx-auto leading-relaxed">
               With a proven track record of delivering enterprise-scale
               solutions, leading technical decisions, and building successful
               products from the ground up, I'm positioned to take on senior
@@ -125,42 +119,13 @@ export const Achievements = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-8 mt-12">
-            {[
-              {
-                icon: "🏗️",
-                title: "System Architect",
-                desc: "Enterprise-scale design",
-              },
-              {
-                icon: "🤖",
-                title: "AI/ML Leader",
-                desc: "Production AI systems",
-              },
-              {
-                icon: "🚀",
-                title: "Technical CTO",
-                desc: "Idea to production",
-              },
-              {
-                icon: "👥",
-                title: "Team Leader",
-                desc: "Mentoring & guidance",
-              },
-              {
-                icon: "📈",
-                title: "Growth Driver",
-                desc: "Business impact focus",
-              },
-            ].map((role, index) => (
-              <div key={role.title} className="text-center group">
-                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {role.icon}
-                </div>
-                <h4 className="text-white font-semibold mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
+            {roles.map((role) => (
+              <div key={role.title} className="text-center">
+                <h4 className="text-schema-heading font-semibold text-sm mb-1">
                   {role.title}
                 </h4>
-                <p className="text-gray-400 text-sm">{role.desc}</p>
+                <p className="text-schema-faint text-xs">{role.desc}</p>
               </div>
             ))}
           </div>

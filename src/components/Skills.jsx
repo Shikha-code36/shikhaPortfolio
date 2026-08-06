@@ -1,18 +1,29 @@
 import React from "react";
 import { Code, Database, Cloud, Brain, Settings, Layers } from "lucide-react";
+import { SectionHeader } from "./shared/SectionHeader";
 
 export const Skills = () => {
   const skillCategories = [
     {
-      icon: Layers,
-      title: "System Design & Architecture",
+      icon: Database,
+      title: "Databases & Caching",
       skills: [
-        "Microservices Architecture",
-        "Distributed Systems Design",
-        "Event-Driven Architecture",
-        "High-Performance Computing",
-        "API Design & Development",
-        "Scalability Patterns",
+        "PostgreSQL, MongoDB, MySQL — schema design & indexing",
+        "Redis, Memcached — multi-layer caching strategies",
+        "Cache eviction policies: LRU/LFU, cost-aware, learned (DQN)",
+        "pgvector, FAISS — vector-based retrieval",
+        "Apache AGE — graph data layer on PostgreSQL",
+      ],
+    },
+    {
+      icon: Layers,
+      title: "Distributed Systems",
+      skills: [
+        "Failure injection & chaos engineering: Toxiproxy, k6",
+        "Connection pool saturation, retry amplification, backoff & jitter",
+        "Circuit breakers & admission control",
+        "Microservices & event-driven architecture",
+        "Reproducible load experiments with replicated runs",
       ],
     },
     {
@@ -23,7 +34,6 @@ export const Skills = () => {
         "Go: High-performance backends",
         "C++: System programming, HFT",
         "JavaScript/TypeScript: Full-stack",
-        "Database: PostgreSQL, MongoDB, MySQL, Redis",
       ],
     },
     {
@@ -31,11 +41,9 @@ export const Skills = () => {
       title: "AI & Machine Learning",
       skills: [
         "LLM Integration: LangChain, OpenAI API, LLaMA",
-        "Agent Tooling: MCP (Model Context Protocol), OpenBB, agent orchestration",
+        "Agent Tooling: MCP, OpenBB, agent orchestration",
         "LLM Observability: Langfuse, mem0",
-        "RAG Applications: Vector databases, FAISS, pgvector",
         "Deep Learning: PyTorch, CNN optimization",
-        "Research: Reinforcement Learning, Neural Networks",
       ],
     },
     {
@@ -46,116 +54,95 @@ export const Skills = () => {
         "GCP: Cloud platform services",
         "Containerization: Docker, Kubernetes",
         "CI/CD: Jenkins, XL Release (XLR)",
-        "Infrastructure: Infrastructure as Code",
-      ],
-    },
-    {
-      icon: Database,
-      title: "Data Engineering",
-      skills: [
-        "Streaming: Apache Kafka, real-time processing",
-        "Orchestration: Apache Airflow, workflow management",
-        "Graph Data: Apache AGE on PostgreSQL",
-        "Communication: WebSocket, real-time systems",
-        "ETL: Data pipelines, transformation",
       ],
     },
     {
       icon: Settings,
-      title: "Technical Leadership",
+      title: "Data Engineering & Leadership",
       skills: [
+        "Streaming: Apache Kafka, real-time processing",
+        "Orchestration: Apache Airflow",
         "Architecture Decision Making",
-        "Code Review & Quality Assurance",
-        "Team Mentoring & Guidance",
-        "Project Planning & Execution",
-        "Performance Optimization",
+        "Team Mentoring & Code Review",
       ],
     },
   ];
 
   const technicalStats = [
-    {
-      label: "Programming Languages",
-      value: "8+",
-      description: "Languages used",
-    },
-    { label: "Cloud Platforms", value: "3", description: "AWS, GCP, Azure" },
-    {
-      label: "Database Systems",
-      value: "6+",
-      description: "SQL & NoSQL databases",
-    },
-    {
-      label: "AI/ML Projects",
-      value: "10+",
-      description: "Production deployments",
-    },
+    { label: "cache_hit_focus", value: "core", description: "primary domain" },
+    { label: "db_systems", value: "6+", description: "SQL & NoSQL" },
+    { label: "languages", value: "8+", description: "in production use" },
+    { label: "ai_ml_projects", value: "10+", description: "shipped" },
   ];
 
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Technical Arsenal
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-        </div>
+        <SectionHeader
+          file="skills.sql"
+          title="Technical Stack"
+          subtitle="SELECT * FROM skills WHERE domain IN ('backend', 'databases', 'ai');"
+        />
 
-        {/* Technical Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {technicalStats.map((stat, index) => (
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 border border-schema-border rounded-lg overflow-hidden mb-12">
+          {technicalStats.map((stat, i) => (
             <div
               key={stat.label}
-              className="text-center bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
+              className={`px-5 py-5 bg-schema-raised ${
+                i !== technicalStats.length - 1
+                  ? "border-r border-schema-border"
+                  : ""
+              }`}
             >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
+              <div className="text-schema-faint text-[10px] uppercase tracking-wider mb-2">
+                {stat.label}
+              </div>
+              <div className="text-2xl font-bold text-schema-accent mb-1">
                 {stat.value}
               </div>
-              <div className="text-white font-medium mb-1">{stat.label}</div>
-              <div className="text-gray-400 text-sm">{stat.description}</div>
+              <div className="text-schema-faint text-xs">
+                {stat.description}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
+        {/* Skills as schema table */}
+        <div className="border border-schema-border rounded-lg overflow-hidden">
+          <div className="grid grid-cols-[220px_1fr] text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
+            <div className="px-5 py-3 border-r border-schema-border">
+              category
+            </div>
+            <div className="px-5 py-3">skills</div>
+          </div>
+          {skillCategories.map((category) => (
             <div
               key={category.title}
-              className="group bg-gradient-to-br from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300 transform hover:-translate-y-2"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
+              className="grid grid-cols-1 md:grid-cols-[220px_1fr] border-b border-schema-soft last:border-b-0 bg-schema-raised"
             >
-              <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                  <category.icon size={24} className="text-cyan-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+              <div className="px-5 py-4 border-r border-schema-soft flex items-start gap-2.5">
+                <category.icon
+                  size={16}
+                  className="text-schema-accent mt-0.5 flex-shrink-0"
+                />
+                <span className="text-schema-heading text-sm font-medium">
                   {category.title}
-                </h3>
+                </span>
               </div>
-
-              <ul className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <li
-                    key={skillIndex}
-                    className="text-gray-300 flex items-start group-hover:text-gray-200 transition-colors duration-300"
+              <div className="px-5 py-4 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-xs px-2.5 py-1.5 rounded border border-schema-border text-schema-dim"
                   >
-                    <span className="text-cyan-400 mr-3 mt-1 flex-shrink-0">
-                      •
-                    </span>
-                    <span className="leading-relaxed">{skill}</span>
-                  </li>
+                    {skill}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { SectionHeader } from "./shared/SectionHeader";
 
 // Email validation utility
 const isValidEmail = (email) => {
@@ -124,25 +125,25 @@ export const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
+      label: "email",
       value: "shikha.py36@gmail.com",
       href: "mailto:shikha.py36@gmail.com",
     },
     {
       icon: MapPin,
-      label: "Location",
+      label: "location",
       value: "Gurugram, India",
       href: "#",
     },
     {
       icon: Linkedin,
-      label: "LinkedIn",
+      label: "linkedin",
       value: "linkedin.com/in/36-shikha-pandey/",
       href: "https://www.linkedin.com/in/36-shikha-pandey/",
     },
     {
       icon: Github,
-      label: "GitHub",
+      label: "github",
       value: "github.com/Shikha-code36",
       href: "https://github.com/Shikha-code36",
     },
@@ -164,32 +165,26 @@ export const Contact = () => {
     },
   ];
 
+  const inputClass =
+    "w-full px-4 py-3 bg-schema-raised2 border border-schema-border rounded-lg text-schema-text placeholder-schema-faint2 focus:border-schema-accent focus:outline-none transition-colors duration-300 text-sm";
+
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Let's Build Something Amazing Together
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-8"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to discuss your next system architecture challenge?
-            <br />
-            Let's collaborate on building scalable, high-performance solutions
-            that drive business impact.
-          </p>
-        </div>
+        <SectionHeader
+          file="contact.sql"
+          title="Let's Build Something Amazing Together"
+          subtitle="Ready to discuss your next system architecture, database, or caching challenge?"
+        />
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Get in Touch
+              <h3 className="text-sm uppercase tracking-wider text-schema-faint mb-5">
+                get_in_touch
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {contactInfo.map((info) => (
                   <a
                     key={info.label}
@@ -200,14 +195,16 @@ export const Contact = () => {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="flex items-center space-x-4 text-gray-300 hover:text-cyan-400 transition-colors duration-300 group"
+                    className="flex items-center gap-4 text-schema-dim hover:text-schema-accent transition-colors duration-300 group"
                   >
-                    <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 p-3 rounded-lg border border-cyan-500/20 group-hover:border-cyan-400/40 transition-all duration-300">
-                      <info.icon size={20} className="text-cyan-400" />
+                    <div className="bg-schema-raised p-3 rounded-lg border border-schema-border group-hover:border-schema-accentdim transition-colors duration-300">
+                      <info.icon size={18} className="text-schema-accent" />
                     </div>
                     <div>
-                      <div className="text-sm text-gray-400">{info.label}</div>
-                      <div className="font-medium">{info.value}</div>
+                      <div className="text-xs text-schema-faint">
+                        {info.label}
+                      </div>
+                      <div className="text-sm font-medium">{info.value}</div>
                     </div>
                   </a>
                 ))}
@@ -215,25 +212,25 @@ export const Contact = () => {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Availability
+              <h3 className="text-sm uppercase tracking-wider text-schema-faint mb-5">
+                availability
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {availability.map((item) => (
                   <div
                     key={item.type}
-                    className="bg-gradient-to-r from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-4"
+                    className="bg-schema-raised border border-schema-border rounded-lg p-4"
                   >
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center gap-3">
                       <CheckCircle
-                        size={16}
-                        className="text-green-400 flex-shrink-0"
+                        size={15}
+                        className="text-schema-accent flex-shrink-0"
                       />
                       <div>
-                        <div className="text-white font-medium">
+                        <div className="text-schema-heading text-sm font-medium">
                           {item.type}
                         </div>
-                        <div className="text-gray-400 text-sm">
+                        <div className="text-schema-faint text-xs">
                           {item.status}
                         </div>
                       </div>
@@ -245,32 +242,32 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Start a Conversation
+          <div className="bg-schema-raised border border-schema-border rounded-lg p-6 md:p-8">
+            <h3 className="text-sm uppercase tracking-wider text-schema-faint mb-6">
+              start_a_conversation
             </h3>
 
             {isSubmitted ? (
               <div className="text-center py-12">
                 <CheckCircle
-                  size={64}
-                  className="text-green-400 mx-auto mb-4"
+                  size={48}
+                  className="text-schema-accent mx-auto mb-4"
                 />
-                <h4 className="text-xl font-semibold text-white mb-2">
+                <h4 className="text-lg font-semibold text-schema-heading mb-2">
                   Message Sent Successfully!
                 </h4>
-                <p className="text-gray-400">
+                <p className="text-schema-faint text-sm">
                   Thank you for reaching out. I'll get back to you soon.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSendMail} className="space-y-6">
+              <form onSubmit={handleSendMail} className="space-y-5">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-white font-medium mb-2"
+                    className="block text-schema-dim text-sm mb-2"
                   >
-                    Your Name *
+                    name *
                   </label>
                   <input
                     type="text"
@@ -281,7 +278,7 @@ export const Contact = () => {
                     onBlur={checkRequired}
                     maxLength="100"
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    className={inputClass}
                     placeholder="Your name"
                   />
                 </div>
@@ -289,9 +286,9 @@ export const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-white font-medium mb-2"
+                    className="block text-schema-dim text-sm mb-2"
                   >
-                    Your Email *
+                    email *
                   </label>
                   <input
                     type="email"
@@ -302,11 +299,11 @@ export const Contact = () => {
                     onBlur={handleEmailBlur}
                     maxLength="100"
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    className={inputClass}
                     placeholder="your.email@example.com"
                   />
                   {error.email && (
-                    <p className="text-red-400 text-sm mt-2">
+                    <p className="text-schema-red text-xs mt-2">
                       Please provide a valid email!
                     </p>
                   )}
@@ -315,9 +312,9 @@ export const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-white font-medium mb-2"
+                    className="block text-schema-dim text-sm mb-2"
                   >
-                    Subject *
+                    subject *
                   </label>
                   <input
                     type="text"
@@ -328,7 +325,7 @@ export const Contact = () => {
                     onBlur={checkRequired}
                     maxLength="150"
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300"
+                    className={inputClass}
                     placeholder="What's this about?"
                   />
                 </div>
@@ -336,9 +333,9 @@ export const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-white font-medium mb-2"
+                    className="block text-schema-dim text-sm mb-2"
                   >
-                    Your Message *
+                    message *
                   </label>
                   <textarea
                     id="message"
@@ -349,19 +346,19 @@ export const Contact = () => {
                     maxLength="500"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors duration-300 resize-none"
+                    className={`${inputClass} resize-none`}
                     placeholder="Tell me about your project or how I can help..."
                   ></textarea>
                 </div>
 
                 <div className="flex flex-col items-center gap-4">
                   {error.required && (
-                    <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 flex items-center space-x-3 w-full">
+                    <div className="bg-schema-red/10 border border-schema-red/30 rounded-lg p-4 flex items-center gap-3 w-full">
                       <AlertCircle
-                        size={20}
-                        className="text-red-400 flex-shrink-0"
+                        size={18}
+                        className="text-schema-red flex-shrink-0"
                       />
-                      <p className="text-red-400 text-sm">
+                      <p className="text-schema-red text-sm">
                         All fields are required!
                       </p>
                     </div>
@@ -370,20 +367,17 @@ export const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center space-x-2 group"
+                    className="w-full bg-schema-accent text-[#052018] px-8 py-3.5 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-300 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <div className="w-4 h-4 border-2 border-[#052018] border-t-transparent rounded-full animate-spin"></div>
                         <span>Sending...</span>
                       </>
                     ) : (
                       <>
                         <span>Send Message</span>
-                        <Send
-                          size={20}
-                          className="group-hover:translate-x-1 transition-transform duration-200"
-                        />
+                        <Send size={17} />
                       </>
                     )}
                   </button>

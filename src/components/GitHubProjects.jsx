@@ -7,6 +7,7 @@ import {
   Calendar,
   ArrowRight,
 } from "lucide-react";
+import { SectionHeader, LinkButton } from "./shared/SectionHeader";
 
 const PINNED_REPO_NAMES = [
   "early-exit-cnn",
@@ -39,7 +40,6 @@ export const GitHubProjects = () => {
     }
   };
 
-  // Get top 5 most starred repositories
   const topStarredRepos = [...repositories]
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 5);
@@ -75,8 +75,10 @@ export const GitHubProjects = () => {
     return (
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400 mx-auto"></div>
-          <p className="text-gray-400 mt-4">Loading GitHub projects...</p>
+          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-schema-accent mx-auto"></div>
+          <p className="text-schema-faint mt-4 text-sm">
+            $ git clone --loading...
+          </p>
         </div>
       </section>
     );
@@ -85,45 +87,38 @@ export const GitHubProjects = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Open Source & Development
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-8"></div>
+        <SectionHeader file="github.log" title="Open Source & Development" />
 
-          <a
-            href="https://github.com/Shikha-code36"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
-          >
-            <Github size={24} />
-            <span className="text-lg font-medium">@Shikha-code36</span>
-            <ExternalLink size={16} />
-          </a>
-        </div>
+        <a
+          href="https://github.com/Shikha-code36"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-schema-accent hover:opacity-80 transition-opacity duration-300 mb-14 text-sm"
+        >
+          <Github size={18} />
+          <span>@Shikha-code36</span>
+          <ExternalLink size={14} />
+        </a>
 
         {/* Top Starred Repositories */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-            <Star className="text-yellow-400 mr-3" size={24} />
-            Most Starred Projects
+          <h3 className="text-lg font-semibold text-schema-heading mb-6 flex items-center">
+            <Star className="text-schema-amber mr-2" size={18} />
+            Most Starred
           </h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             {topStarredRepos.map((repo, index) => (
               <div
                 key={repo.id}
-                className="group bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
+                className="bg-schema-raised border border-schema-border rounded-lg p-5 hover:border-schema-accentdim transition-colors duration-300"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold text-cyan-400">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="text-sm font-bold text-schema-accent flex-shrink-0">
                       #{index + 1}
                     </span>
-                    <h4 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300 line-clamp-2">
+                    <h4 className="text-schema-heading text-sm font-medium truncate">
                       {repo.name.replace(/-/g, " ")}
                     </h4>
                   </div>
@@ -131,57 +126,52 @@ export const GitHubProjects = () => {
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 flex-shrink-0"
+                    className="text-schema-faint hover:text-schema-accent transition-colors duration-300 flex-shrink-0"
                   >
-                    <ExternalLink size={18} />
+                    <ExternalLink size={15} />
                   </a>
                 </div>
 
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                <p className="text-schema-faint text-xs mb-4 line-clamp-3 leading-relaxed">
                   {repo.description || "No description available"}
                 </p>
 
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-3">
                     {repo.language && (
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center gap-1.5">
                         <div
-                          className="w-3 h-3 rounded-full"
+                          className="w-2.5 h-2.5 rounded-full"
                           style={{
                             backgroundColor: getLanguageColor(repo.language),
                           }}
                         ></div>
-                        <span className="text-gray-400">{repo.language}</span>
+                        <span className="text-schema-faint">
+                          {repo.language}
+                        </span>
                       </div>
                     )}
-
-                    <div className="flex items-center space-x-1 text-yellow-400">
-                      <Star size={14} />
-                      <span className="font-medium">
-                        {repo.stargazers_count}
-                      </span>
+                    <div className="flex items-center gap-1 text-schema-amber">
+                      <Star size={12} />
+                      <span>{repo.stargazers_count}</span>
                     </div>
-
-                    <div className="flex items-center space-x-1 text-gray-400">
-                      <GitFork size={14} />
+                    <div className="flex items-center gap-1 text-schema-faint">
+                      <GitFork size={12} />
                       <span>{repo.forks_count}</span>
                     </div>
                   </div>
-
-                  <div className="flex items-center space-x-1 text-gray-400">
-                    <Calendar size={12} />
-                    <span className="text-xs">
-                      {formatDate(repo.updated_at)}
-                    </span>
+                  <div className="flex items-center gap-1 text-schema-faint2">
+                    <Calendar size={11} />
+                    <span>{formatDate(repo.updated_at)}</span>
                   </div>
                 </div>
 
                 {repo.topics && repo.topics.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-3">
+                  <div className="flex flex-wrap gap-1.5 mt-3">
                     {repo.topics.slice(0, 3).map((topic) => (
                       <span
                         key={topic}
-                        className="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded text-xs"
+                        className="px-2 py-0.5 border border-schema-border text-schema-dim rounded text-[10px]"
                       >
                         {topic}
                       </span>
@@ -192,96 +182,88 @@ export const GitHubProjects = () => {
             ))}
           </div>
 
-          {/* View All Repositories CTA */}
-          <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl p-8 border border-cyan-500/20 text-center">
+          <div className="bg-schema-raised rounded-lg p-8 border border-schema-border text-center">
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Explore All My Projects
+              <h3 className="text-lg font-semibold text-schema-heading mb-3">
+                Explore All Repositories
               </h3>
-              <p className="text-gray-300 mb-6">
-                Discover all my repositories covering everything
-                from AI/ML research to enterprise solutions, data engineering,
-                and system architecture.
+              <p className="text-schema-dim text-sm mb-6">
+                Everything from AI/ML research to enterprise solutions, data
+                engineering, and system architecture.
               </p>
-              <a
+              <LinkButton
                 href="https://github.com/Shikha-code36?tab=repositories"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 group"
+                primary
               >
-                <Github size={20} />
+                <Github size={18} />
                 <span>View All Repositories</span>
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </a>
+                <ArrowRight size={15} />
+              </LinkButton>
             </div>
           </div>
         </div>
 
         {/* Pinned Repositories */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Github className="text-gray-400 mr-3" size={24} />
+          <h3 className="text-lg font-semibold text-schema-heading mb-3 flex items-center">
+            <Github className="text-schema-faint mr-2" size={18} />
             Pinned Repositories
           </h3>
 
-          <p className="text-gray-400 text-sm mb-6">
-            Repos I've pinned on GitHub — I have many more covering AI/ML
-            research, tutorials, and experiments.
+          <p className="text-schema-faint text-sm mb-6">
+            Repos I've pinned on GitHub — many more cover AI/ML research,
+            tutorials, and experiments.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-3">
             {pinnedRepos.map((repo) => (
               <div
                 key={repo.id}
-                className="group bg-gradient-to-r from-slate-800/30 to-slate-700/30 backdrop-blur-sm border border-gray-700/50 rounded-lg p-4 hover:border-cyan-400/40 transition-all duration-300"
+                className="bg-schema-raised border border-schema-soft rounded-lg p-4 hover:border-schema-accentdim transition-colors duration-300"
               >
                 <div className="flex items-start justify-between mb-2">
-                  <h4 className="text-white font-medium group-hover:text-cyan-400 transition-colors duration-300 flex-1 pr-2">
+                  <h4 className="text-schema-heading text-sm font-medium flex-1 pr-2">
                     {repo.name.replace(/-/g, " ")}
                   </h4>
                   <a
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                    className="text-schema-faint hover:text-schema-accent transition-colors duration-300"
                   >
-                    <ExternalLink size={16} />
+                    <ExternalLink size={14} />
                   </a>
                 </div>
 
-                <p className="text-gray-400 text-sm mb-3 line-clamp-2">
+                <p className="text-schema-faint text-xs mb-3 line-clamp-2">
                   {repo.description || "No description available"}
                 </p>
 
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-between text-[11px]">
+                  <div className="flex items-center gap-3">
                     {repo.language && (
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center gap-1">
                         <div
                           className="w-2 h-2 rounded-full"
                           style={{
                             backgroundColor: getLanguageColor(repo.language),
                           }}
                         ></div>
-                        <span className="text-gray-400">{repo.language}</span>
+                        <span className="text-schema-faint">
+                          {repo.language}
+                        </span>
                       </div>
                     )}
-
-                    <div className="flex items-center space-x-1 text-gray-400">
-                      <Star size={12} />
+                    <div className="flex items-center gap-1 text-schema-faint">
+                      <Star size={11} />
                       <span>{repo.stargazers_count}</span>
                     </div>
-
-                    <div className="flex items-center space-x-1 text-gray-400">
-                      <GitFork size={12} />
+                    <div className="flex items-center gap-1 text-schema-faint">
+                      <GitFork size={11} />
                       <span>{repo.forks_count}</span>
                     </div>
                   </div>
-
-                  <span className="text-gray-500">
+                  <span className="text-schema-faint2">
                     {formatDate(repo.updated_at)}
                   </span>
                 </div>
@@ -294,10 +276,10 @@ export const GitHubProjects = () => {
               href="https://github.com/Shikha-code36?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-schema-accent hover:opacity-80 transition-opacity duration-300 text-sm"
             >
               <span>View all repositories on GitHub</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </a>
           </div>
         </div>

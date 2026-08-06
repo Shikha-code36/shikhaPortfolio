@@ -2,29 +2,22 @@ import React, { useEffect, useState } from "react";
 import { ChevronDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 
 export const Hero = () => {
-  const [typedText, setTypedText] = useState("");
-  const fullText = "Senior Software Engineer & System Architect";
+  const [typedRole, setTypedRole] = useState("");
+  const fullRole = "Backend Engineer — Databases, Caching & Distributed Systems";
 
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
+      if (index <= fullRole.length) {
+        setTypedRole(fullRole.slice(0, index));
         index++;
       } else {
         clearInterval(timer);
       }
-    }, 100);
+    }, 35);
 
     return () => clearInterval(timer);
   }, []);
-
-  const expertise = [
-    "System Architecture",
-    "AI Agent Orchestration",
-    "High-Performance Systems",
-    "Financial Tech",
-  ];
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/Shikha-code36", label: "GitHub" },
@@ -47,114 +40,102 @@ export const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {typedText}
-              </span>
-              <span className="animate-pulse">|</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Building Scalable Solutions for Enterprise & AI Systems
-            </p>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              6+ years crafting high-performance systems • AI/ML Integration
-              Specialist
-              <br />
-              Microservices Architecture Expert • Technical Leader
-            </p>
-          </div>
+    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative">
+      <div className="max-w-4xl mx-auto w-full animate-fade-in">
+        <div className="text-schema-faint2 text-sm mb-3">-- portfolio.sql</div>
+        <div className="text-schema-dim text-sm mb-1">
+          <span className="text-schema-red">CREATE TABLE</span>{" "}
+          <span className="text-schema-amber">engineers</span> (
+        </div>
 
-          {/* Core Expertise */}
-          <div className="flex flex-wrap justify-center gap-3 py-12 max-w-3xl mx-auto">
-            {expertise.map((item, index) => (
-              <span
-                key={item}
-                className="px-5 py-2.5 bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-full text-gray-200 text-sm md:text-base font-medium hover:border-cyan-400/40 hover:text-cyan-400 transition-all duration-300"
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                  animation: "slideUp 0.8s ease-out forwards",
-                }}
-              >
-                {item}
-              </span>
-            ))}
-          </div>
+        <h1 className="text-4xl md:text-6xl font-bold text-schema-heading mt-6 mb-1">
+          Shikha Pandey
+        </h1>
+        <p className="text-lg md:text-xl text-schema-accent mb-8 min-h-[1.75rem]">
+          {typedRole}
+          <span className="caret-blink text-schema-accent">|</span>
+        </p>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group p-3 bg-slate-800/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl hover:border-cyan-400/40 hover:bg-slate-700/50 transition-all duration-300"
-                aria-label={social.label}
-              >
-                <social.icon
-                  size={24}
-                  className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300"
-                />
-              </a>
-            ))}
+        <div className="border border-schema-border rounded-lg overflow-hidden mb-8">
+          <div className="grid grid-cols-3 text-xs uppercase tracking-wider text-schema-faint bg-schema-raised2 border-b border-schema-border">
+            <div className="px-4 py-2 border-r border-schema-border">column</div>
+            <div className="px-4 py-2 border-r border-schema-border">type</div>
+            <div className="px-4 py-2">value</div>
           </div>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <button
-              onClick={handleScrollToProjects}
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-xl text-lg font-medium hover:from-cyan-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/25"
+          {[
+            ["experience_yrs", "int", "6"],
+            ["primary_focus", "varchar", "caching, databases, distributed systems"],
+            ["stack", "text[]", "Redis · PostgreSQL · MongoDB · Kafka"],
+            ["domain", "varchar", "enterprise & AI systems"],
+            [
+              "currently_building",
+              "varchar",
+              "slimybug — failure injection for distributed systems",
+              "https://github.com/Shikha-code36/slimybug",
+            ],
+            ["status", "enum", "open_to_work"],
+          ].map(([col, type, val, href]) => (
+            <div
+              key={col}
+              className="grid grid-cols-3 text-sm border-b border-schema-soft last:border-b-0"
             >
-              View My Work
-            </button>
+              <div className="px-4 py-2.5 border-r border-schema-soft text-schema-accent">
+                {col}
+              </div>
+              <div className="px-4 py-2.5 border-r border-schema-soft text-schema-amber">
+                {type}
+              </div>
+              <div className="px-4 py-2.5 text-schema-text">
+                {href ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-schema-accent hover:underline"
+                  >
+                    {val} ↗
+                  </a>
+                ) : (
+                  val
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-schema-dim text-sm mb-10">);</div>
+
+        {/* Social Links */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          <a
+            href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-schema-accent text-[#052018] px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity duration-200"
+          >
+            ↓ Resume
+          </a>
+          {socialLinks.map((social) => (
             <a
-              href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
+              key={social.label}
+              href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl text-lg font-medium hover:bg-cyan-500 hover:text-white transform hover:scale-105 transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-3 bg-schema-raised border border-schema-border rounded-lg text-schema-dim hover:border-schema-accentdim hover:text-schema-accent transition-colors duration-200 text-sm"
             >
-              Download Resume
+              <social.icon size={16} />
+              <span className="hidden sm:inline">{social.label}</span>
             </a>
-          </div>
+          ))}
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-cyan-400" />
-        </div>
+        <button
+          onClick={handleScrollToProjects}
+          className="flex items-center gap-2 text-schema-faint hover:text-schema-accent transition-colors duration-200 text-sm"
+        >
+          <ChevronDown size={18} className="animate-bounce" />
+          scroll for experience &amp; projects
+        </button>
       </div>
-
-      <style jsx>{`
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-      `}</style>
     </section>
   );
 };

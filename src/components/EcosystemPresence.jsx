@@ -1,12 +1,20 @@
 import React from "react";
-import { Package, Globe, Sparkles, PackageCheck, ExternalLink } from "lucide-react";
+import {
+  Package,
+  Globe,
+  Sparkles,
+  PackageCheck,
+  ExternalLink,
+} from "lucide-react";
+import { SectionHeader } from "./shared/SectionHeader";
 
 export const EcosystemPresence = () => {
   const platforms = [
     {
       icon: PackageCheck,
       name: "PyPI",
-      description: "Official Python package index — a published, pip-installable package",
+      description:
+        "Official Python package index — a published, pip-installable package",
       href: "https://pypi.org/project/competitivepython/",
       linkLabel: "competitivepython",
     },
@@ -64,72 +72,64 @@ export const EcosystemPresence = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Ecosystem Presence
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-8"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            My open-source work is discoverable across independent developer
-            ecosystems — indexed, cataloged, and surfaced beyond GitHub
-            itself.
-          </p>
-        </div>
+        <SectionHeader
+          file="ecosystem.json"
+          title="Ecosystem Presence"
+          subtitle="Open-source work discoverable across independent developer ecosystems — indexed and cataloged beyond GitHub itself."
+        />
 
-        {/* Platform Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
           {platforms.map((platform) => (
             <a
               key={platform.name}
               href={platform.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 hover:scale-105 transition-all duration-300"
+              className="bg-schema-raised border border-schema-border rounded-lg p-5 hover:border-schema-accentdim transition-colors duration-300"
             >
-              <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                  <platform.icon size={22} className="text-cyan-400" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded border border-schema-border flex items-center justify-center flex-shrink-0">
+                  <platform.icon size={17} className="text-schema-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                <h3 className="text-schema-heading text-sm font-semibold">
                   {platform.name}
                 </h3>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              <p className="text-schema-faint text-xs leading-relaxed mb-3">
                 {platform.description}
               </p>
-              <div className="flex items-center space-x-1 text-cyan-400 text-sm font-medium">
+              <div className="flex items-center gap-1 text-schema-accent text-xs font-medium">
                 <span>{platform.linkLabel}</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={12} />
               </div>
             </a>
           ))}
         </div>
 
-        {/* Indexed Listings */}
-        <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl p-8 border border-cyan-500/20">
-          <h3 className="text-xl font-semibold text-white mb-6 text-center">
-            Indexed Projects
+        <div className="bg-schema-raised rounded-lg p-6 md:p-8 border border-schema-border">
+          <h3 className="text-sm uppercase tracking-wider text-schema-faint mb-6">
+            indexed_projects
           </h3>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-3">
             {listings.map((listing) => (
               <a
                 key={listing.title}
                 href={listing.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between bg-slate-800/40 border border-gray-700/50 rounded-lg px-4 py-3 hover:border-cyan-400/40 transition-all duration-300"
+                className="flex items-center justify-between bg-schema-raised2 border border-schema-soft rounded-lg px-4 py-3 hover:border-schema-accentdim transition-colors duration-300"
               >
                 <div className="min-w-0 pr-2">
-                  <div className="text-white text-sm font-medium group-hover:text-cyan-400 transition-colors duration-300 truncate">
+                  <div className="text-schema-text text-sm font-medium truncate">
                     {listing.title.replace(/-/g, " ")}
                   </div>
-                  <div className="text-gray-500 text-xs">{listing.source}</div>
+                  <div className="text-schema-faint2 text-xs">
+                    {listing.source}
+                  </div>
                 </div>
                 <ExternalLink
-                  size={16}
-                  className="text-gray-400 group-hover:text-cyan-400 transition-colors duration-300 flex-shrink-0"
+                  size={14}
+                  className="text-schema-faint flex-shrink-0"
                 />
               </a>
             ))}
