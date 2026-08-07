@@ -110,30 +110,6 @@ export const Projects = () => {
           "Contributing novel optimization strategies to AI/ML research community",
       },
     },
-    {
-      category: "Enterprise Solutions",
-      project: {
-        title: "HirelCube - AI Interview Platform",
-        description:
-          "Complete AI-powered mock interview platform for job preparation",
-        techStack: [
-          "FastAPI",
-          "Microservices",
-          "AI Integration",
-          "Real-time Systems",
-        ],
-        features: [
-          "Complete backend architecture design",
-          "AI integration for interview assessment",
-          "Real-time communication systems",
-          "Scalable microservices deployment",
-          "User management & analytics systems",
-        ],
-        website: "https://hirelcube.com/",
-        impact:
-          "Enabling AI-powered interview preparation for thousands of job seekers",
-      },
-    },
   ];
 
   return (

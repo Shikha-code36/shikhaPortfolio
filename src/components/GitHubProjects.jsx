@@ -113,12 +113,12 @@ export const GitHubProjects = () => {
                 key={repo.id}
                 className="bg-schema-raised border border-schema-border rounded-lg p-5 hover:border-schema-accentdim transition-colors duration-300"
               >
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="text-sm font-bold text-schema-accent flex-shrink-0">
                       #{index + 1}
                     </span>
-                    <h4 className="text-schema-heading text-sm font-medium truncate">
+                    <h4 className="text-schema-heading text-sm font-medium truncate min-w-0 flex-1">
                       {repo.name.replace(/-/g, " ")}
                     </h4>
                   </div>

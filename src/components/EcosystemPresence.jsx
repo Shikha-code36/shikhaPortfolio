@@ -91,7 +91,7 @@ export const EcosystemPresence = () => {
                 <div className="w-9 h-9 rounded border border-schema-border flex items-center justify-center flex-shrink-0">
                   <platform.icon size={17} className="text-schema-accent" />
                 </div>
-                <h3 className="text-schema-heading text-sm font-semibold">
+                <h3 className="text-schema-heading text-sm font-semibold min-w-0 break-words">
                   {platform.name}
                 </h3>
               </div>
