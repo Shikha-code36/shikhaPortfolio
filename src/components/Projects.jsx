@@ -33,6 +33,26 @@ export const Projects = () => {
       },
     },
     {
+      category: "Open Source Contribution",
+      status: "merged",
+      project: {
+        title: "DragonflyDB — Fixed Interpreter Crash (SIGABRT)",
+        description:
+          "Diagnosed and fixed a crash in DragonflyDB (31k★ modern replacement for Redis and Memcached): a std::regex with nested quantifiers in the Lua interpreter's async-call detector recursed deep enough to blow a fiber's stack on long, contiguous scripts.",
+        techStack: ["C++", "Lua Interpreter", "std::regex", "DragonflyDB"],
+        features: [
+          "Replaced the recursive regex scan with an iterative, non-regex scanner with identical behavior — stack usage no longer depends on script content",
+          "Reproduced the original SIGABRT against the unmodified code to confirm root cause before writing the fix",
+          "Added a regression test covering a 10,000-char run and 5,000 comment lines (previously crashed, now completes in ~1ms)",
+          "All 14 existing async-replacement test cases pass with identical output",
+        ],
+        github: "https://github.com/dragonflydb/dragonfly/pull/7974",
+        githubLabel: "View PR",
+        impact:
+          "Merged into a production in-memory data store used as a drop-in Redis/Memcached replacement — closes a crash that any script with a long, contiguous non-whitespace run could trigger",
+      },
+    },
+    {
       category: "High-Performance Systems",
       project: {
         title: "ArbiSim - Cryptocurrency Arbitrage Detection",
@@ -130,12 +150,17 @@ export const Projects = () => {
               <div className="px-6 py-4 bg-schema-raised2 border-b border-schema-border">
                 <div className="flex flex-wrap items-center gap-2">
                   <Tag hot={item.hot}>{item.category}</Tag>
-                  {item.status && (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-schema-accent">
-                      <span className="w-1.5 h-1.5 rounded-full bg-schema-accent animate-pulse" />
-                      {item.status}
-                    </span>
-                  )}
+                  {item.status &&
+                    (item.status === "merged" ? (
+                      <span className="inline-flex items-center gap-1.5 text-xs text-schema-accent">
+                        ✓ {item.status}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 text-xs text-schema-accent">
+                        <span className="w-1.5 h-1.5 rounded-full bg-schema-accent animate-pulse" />
+                        {item.status}
+                      </span>
+                    ))}
                 </div>
                 <h3 className="text-xl font-bold text-schema-heading mt-3">
                   {item.project.title}
@@ -179,7 +204,7 @@ export const Projects = () => {
                     {item.project.github && (
                       <LinkButton href={item.project.github}>
                         <Github size={16} />
-                        <span>GitHub</span>
+                        <span>{item.project.githubLabel || "GitHub"}</span>
                       </LinkButton>
                     )}
                     {item.project.website && (
