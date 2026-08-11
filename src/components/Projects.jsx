@@ -34,22 +34,37 @@ export const Projects = () => {
     },
     {
       category: "Open Source Contribution",
-      status: "merged",
+      status: "2 merged",
       project: {
-        title: "DragonflyDB — Fixed Interpreter Crash (SIGABRT)",
+        title: "DragonflyDB — 2 Merged Production Fixes",
         description:
-          "Diagnosed and fixed a crash in DragonflyDB (31k★ modern replacement for Redis and Memcached): a std::regex with nested quantifiers in the Lua interpreter's async-call detector recursed deep enough to blow a fiber's stack on long, contiguous scripts.",
-        techStack: ["C++", "Lua Interpreter", "std::regex", "DragonflyDB"],
-        features: [
-          "Replaced the recursive regex scan with an iterative, non-regex scanner with identical behavior — stack usage no longer depends on script content",
-          "Reproduced the original SIGABRT against the unmodified code to confirm root cause before writing the fix",
-          "Added a regression test covering a 10,000-char run and 5,000 comment lines (previously crashed, now completes in ~1ms)",
-          "All 14 existing async-replacement test cases pass with identical output",
+          "Diagnosed and fixed two production-level issues in DragonflyDB (31k★ high-performance Redis-compatible in-memory data store) — spanning interpreter stability and distributed replication correctness.",
+        techStack: [
+          "C++",
+          "Lua Interpreter",
+          "Replication",
+          "Journaling",
+          "Sharding",
+          "std::regex",
         ],
-        github: "https://github.com/dragonflydb/dragonfly/pull/7974",
-        githubLabel: "View PR",
+        features: [
+          "PR #7974 — Lua interpreter SIGABRT: replaced a recursive std::regex scan in the async-call detector with an iterative scanner, preventing fiber stack exhaustion on long scripts; added regression coverage for large inputs",
+          "PR #8030 — Cross-shard replication crash: fixed replica crashes during journal replay for cross-shard GEORADIUS / GEORADIUSBYMEMBER ... STORE",
+          "Reworked the journaling path to replay explicit destination updates, and fixed floating-point score serialization to preserve exact GEO scores across primary and replica",
+          "Added replication regression coverage and verified the relevant test suites for both fixes",
+        ],
+        links: [
+          {
+            label: "PR #7974 — Interpreter Crash",
+            href: "https://github.com/dragonflydb/dragonfly/pull/7974",
+          },
+          {
+            label: "PR #8030 — Replication Crash",
+            href: "https://github.com/dragonflydb/dragonfly/pull/8030",
+          },
+        ],
         impact:
-          "Merged into a production in-memory data store used as a drop-in Redis/Memcached replacement — closes a crash that any script with a long, contiguous non-whitespace run could trigger",
+          "Contributed fixes spanning C++, Lua interpreter internals, sharding, replication, journaling, floating-point serialization, and regression testing — merged into a production-grade in-memory datastore",
       },
     },
     {
@@ -151,7 +166,7 @@ export const Projects = () => {
                 <div className="flex flex-wrap items-center gap-2">
                   <Tag hot={item.hot}>{item.category}</Tag>
                   {item.status &&
-                    (item.status === "merged" ? (
+                    (item.status.includes("merged") ? (
                       <span className="inline-flex items-center gap-1.5 text-xs text-schema-accent">
                         ✓ {item.status}
                       </span>
@@ -201,12 +216,19 @@ export const Projects = () => {
 
                 <div>
                   <div className="flex flex-wrap gap-3 mb-6">
-                    {item.project.github && (
-                      <LinkButton href={item.project.github}>
-                        <Github size={16} />
-                        <span>{item.project.githubLabel || "GitHub"}</span>
-                      </LinkButton>
-                    )}
+                    {item.project.links
+                      ? item.project.links.map((link) => (
+                          <LinkButton key={link.href} href={link.href}>
+                            <Github size={16} />
+                            <span>{link.label}</span>
+                          </LinkButton>
+                        ))
+                      : item.project.github && (
+                          <LinkButton href={item.project.github}>
+                            <Github size={16} />
+                            <span>{item.project.githubLabel || "GitHub"}</span>
+                          </LinkButton>
+                        )}
                     {item.project.website && (
                       <LinkButton href={item.project.website}>
                         <ExternalLink size={16} />
