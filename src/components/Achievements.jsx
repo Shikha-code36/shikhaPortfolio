@@ -19,7 +19,7 @@ export const Achievements = () => {
       items: [
         "LeetCode Knight — top-tier contest rank, 500+ problems solved",
         "Research Publication in AI/ML optimization strategies",
-        "2 merged production fixes in DragonflyDB (31k★ Redis-compatible datastore) — interpreter stability & replication correctness",
+        "2 merged fixes in DragonflyDB (31k★ Redis-compatible datastore) — closed a crash-triggering interpreter bug and a replica-corruption bug in production",
         "High-Performance Systems deployed in production environments",
       ],
     },

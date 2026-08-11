@@ -64,7 +64,7 @@ export const Projects = () => {
           },
         ],
         impact:
-          "Contributed fixes spanning C++, Lua interpreter internals, sharding, replication, journaling, floating-point serialization, and regression testing — merged into a production-grade in-memory datastore",
+          "Closes a crash any script with a long, contiguous regex-vulnerable string could trigger — and a replication correctness bug where cross-shard GEO commands could crash a replica or leave it silently diverged from the primary. Both now ship in a datastore other engineers run in production.",
       },
     },
     {

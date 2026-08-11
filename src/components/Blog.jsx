@@ -5,28 +5,30 @@ import { SectionHeader, Tag, LinkButton } from "./shared/SectionHeader";
 export const Blog = () => {
   const featuredArticles = [
     {
-      title: "Building a Real-Time Cryptocurrency Arbitrage Detection System",
-      link: "https://pandeyshikha075.medium.com/building-a-real-time-cryptocurrency-arbitrage-detection-system-lessons-from-high-frequency-trading-be1e8151268b",
+      title: "A Two-Second-Stale Signal Is Almost as Bad as No Signal at All",
+      link: "https://pandeyshikha075.medium.com/a-two-second-stale-signal-is-almost-as-bad-as-no-signal-at-all-0c53da7e4ca8",
       description:
-        "Lessons from high-frequency trading and real-time system architecture for cryptocurrency arbitrage detection.",
+        "Isolating whether server-side admission control works because of where the decision is made, or because of how fresh the information behind it is — turns out freshness is doing most of the work.",
+      readTime: "6 min read",
+      category: "Distributed Systems",
+    },
+    {
+      title:
+        "A Bigger Connection Pool Doesn't Soften Overload — It Just Moves the Cliff",
+      link: "https://pandeyshikha075.medium.com/a-bigger-connection-pool-doesnt-soften-overload-it-just-moves-the-cliff-cce9303bfd27",
+      description:
+        "The collapse boundary scales exactly linearly with pool size — a bigger pool moves the collapse point but doesn't soften it, and success still falls to near 0% once you cross it.",
       readTime: "8 min read",
-      category: "System Architecture",
+      category: "Distributed Systems",
     },
     {
-      title: "Optimizing Deep Learning with Early Exit Strategies",
-      link: "https://pandeyshikha075.medium.com/optimizing-deep-learning-with-early-exit-strategies-a-reinforcement-learning-approach-59938ceb01ba",
+      title:
+        "I Built a Learned Cache Eviction Policy. A One-Line Formula From 1998 Beat It.",
+      link: "https://pandeyshikha075.medium.com/i-built-a-learned-cache-eviction-policy-a-one-line-formula-from-1998-beat-it-11ea127a809b",
       description:
-        "A reinforcement learning approach to improve CNN computational efficiency without compromising accuracy.",
-      readTime: "12 min read",
-      category: "AI/ML Research",
-    },
-    {
-      title: "A Step-by-Step Guide to Building a Monitoring System",
-      link: "https://pandeyshikha075.medium.com/a-step-by-step-guide-to-building-a-monitoring-system-with-flask-and-sqlalchemy-85e909bf75d9",
-      description:
-        "Complete guide to building a production-ready monitoring system using Flask and SQLAlchemy.",
-      readTime: "10 min read",
-      category: "Backend Development",
+        "Training a dueling DQN to evict LLM semantic-cache entries, then benchmarking it against decades-old heuristics like GDSF — and being honest about where the learned policy actually wins.",
+      readTime: "16 min read",
+      category: "Caching",
     },
   ];
 
@@ -78,7 +80,14 @@ export const Blog = () => {
                 key={index}
                 className="bg-schema-raised border border-schema-border rounded-lg p-5 hover:border-schema-accentdim transition-colors duration-300 flex flex-col"
               >
-                <Tag>{article.category}</Tag>
+                <Tag
+                  hot={
+                    article.category === "Distributed Systems" ||
+                    article.category === "Caching"
+                  }
+                >
+                  {article.category}
+                </Tag>
 
                 <h4 className="text-schema-heading text-base font-semibold my-3 leading-snug">
                   {article.title}
