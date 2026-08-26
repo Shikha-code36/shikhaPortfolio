@@ -19,7 +19,7 @@ export const Achievements = () => {
       items: [
         "LeetCode Knight — top-tier contest rank, 500+ problems solved",
         "Research Publication in AI/ML optimization strategies",
-        "2 merged fixes in DragonflyDB (31k★ Redis-compatible datastore) — closed a crash-triggering interpreter bug and a replica-corruption bug in production",
+        "Merged upstream fixes in DragonflyDB (31k★ Redis-compatible datastore) and BetterDB monitor — see Open Source above",
         "High-Performance Systems deployed in production environments",
       ],
     },
@@ -45,14 +45,6 @@ export const Achievements = () => {
       label: "leetcode_rank",
       description: "500+ problems solved",
     },
-  ];
-
-  const roles = [
-    { title: "System Architect", desc: "Enterprise-scale design" },
-    { title: "AI/ML Leader", desc: "Production AI systems" },
-    { title: "Technical CTO", desc: "Idea to production" },
-    { title: "Team Leader", desc: "Mentoring & guidance" },
-    { title: "Growth Driver", desc: "Business impact focus" },
   ];
 
   return (
@@ -103,32 +95,6 @@ export const Achievements = () => {
               </ul>
             </Card>
           ))}
-        </div>
-
-        <div className="mt-10 bg-schema-raised rounded-lg p-8 border border-schema-border">
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-schema-heading mb-3">
-              Ready for Senior Technical Leadership Roles
-            </h3>
-            <p className="text-schema-dim text-sm max-w-3xl mx-auto leading-relaxed">
-              With a proven track record of delivering enterprise-scale
-              solutions, leading technical decisions, and building successful
-              products from the ground up, I'm positioned to take on senior
-              architect, CTO, or technical leadership roles where I can drive
-              innovation and business impact.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mt-10">
-            {roles.map((role) => (
-              <div key={role.title} className="text-center">
-                <h4 className="text-schema-heading font-semibold text-sm mb-1">
-                  {role.title}
-                </h4>
-                <p className="text-schema-faint text-xs">{role.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

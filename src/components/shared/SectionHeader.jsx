@@ -34,7 +34,7 @@ export const LinkButton = ({ href, children, primary = false }) => (
     rel="noopener noreferrer"
     className={`inline-flex items-center gap-2 text-sm px-4 py-2.5 rounded border transition-colors duration-200 ${
       primary
-        ? "bg-schema-accent text-[#052018] border-schema-accent font-semibold hover:opacity-90"
+        ? "bg-schema-accent text-schema-oncolor border-schema-accent font-semibold hover:opacity-90"
         : "text-schema-text border-schema-border bg-schema-raised hover:border-schema-accentdim hover:text-schema-accent"
     }`}
   >

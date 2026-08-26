@@ -2,6 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --schema-bg: #f4f2ec;
+  --schema-raised: #ebe7dc;
+  --schema-raised2: #e2ddcf;
+  --schema-border: #d8d2c0;
+  --schema-soft: #e5e0d2;
+  --schema-text: #3a362a;
+  --schema-heading: #1a1810;
+  --schema-dim: #6b6555;
+  --schema-faint: #8f886f;
+  --schema-faint2: #a39c82;
+  --schema-accent: #1f8f63;
+  --schema-accentdim: #7fbfa0;
+  --schema-amber: #9c6b1f;
+  --schema-red: #ab4c3b;
+  --schema-oncolor: #f4f2ec;
+}
+
+[data-theme="mesh"] {
+  --schema-bg: #23262b;
+  --schema-raised: #2a2e34;
+  --schema-raised2: #2f343b;
+  --schema-border: #3a3f47;
+  --schema-soft: #333940;
+  --schema-text: #dcd9d0;
+  --schema-heading: #f0ede3;
+  --schema-dim: #a19d92;
+  --schema-faint: #726d62;
+  --schema-faint2: #565248;
+  --schema-accent: #6bd9a0;
+  --schema-accentdim: #355c47;
+  --schema-amber: #e0ab5f;
+  --schema-red: #e08a76;
+  --schema-oncolor: #0f1a14;
+}
+
+[data-theme="dark"] {
+  --schema-bg: #0b0e13;
+  --schema-raised: #11151c;
+  --schema-raised2: #131720;
+  --schema-border: #232833;
+  --schema-soft: #1c2029;
+  --schema-text: #dfe6ee;
+  --schema-heading: #f2f5f8;
+  --schema-dim: #9aa4b2;
+  --schema-faint: #6b7280;
+  --schema-faint2: #565f6b;
+  --schema-accent: #59d9b3;
+  --schema-accentdim: #2c5a4c;
+  --schema-amber: #e3b341;
+  --schema-red: #ff7b72;
+  --schema-oncolor: #052018;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -9,26 +63,27 @@ html {
 body {
   font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
     monospace;
-  background: #0b0e13;
+  background: var(--schema-bg);
+  transition: background-color 0.3s ease;
 }
 
 ::selection {
-  background: #2c5a4c;
-  color: #f2f5f8;
+  background: var(--schema-accentdim);
+  color: var(--schema-heading);
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0e13;
+  background: var(--schema-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #232833;
+  background: var(--schema-border);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2c5a4c;
+  background: var(--schema-accentdim);
 }
 
 @keyframes blink-caret {

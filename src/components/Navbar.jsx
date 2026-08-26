@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sun, Network, Moon } from "lucide-react";
 
-export const Navbar = () => {
+const THEME_MODES = [
+  { key: "light", label: "Light", Icon: Sun },
+  { key: "mesh", label: "Mesh", Icon: Network },
+  { key: "dark", label: "Dark", Icon: Moon },
+];
+
+export const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -14,12 +20,9 @@ export const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "about", href: "#about" },
-    { name: "experience", href: "#experience" },
-    { name: "projects", href: "#projects" },
-    { name: "publications", href: "#publications" },
-    { name: "skills", href: "#skills" },
-    { name: "blog", href: "#blog" },
+    { name: "build", href: "#build" },
+    { name: "write", href: "#write" },
+    { name: "presence", href: "#presence" },
     { name: "contact", href: "#contact" },
   ];
 
@@ -58,11 +61,34 @@ export const Navbar = () => {
                   {item.name}
                 </button>
               ))}
+              <div
+                role="group"
+                aria-label="Theme"
+                className="flex items-center gap-0.5 border border-schema-border rounded p-0.5 bg-schema-raised ml-2"
+              >
+                {THEME_MODES.map((mode) => (
+                  <button
+                    key={mode.key}
+                    type="button"
+                    onClick={() => setTheme(mode.key)}
+                    aria-pressed={theme === mode.key}
+                    aria-label={mode.label}
+                    title={mode.label}
+                    className={`p-1.5 rounded transition-colors duration-200 ${
+                      theme === mode.key
+                        ? "bg-schema-bg text-schema-accent"
+                        : "text-schema-faint hover:text-schema-dim"
+                    }`}
+                  >
+                    <mode.Icon size={14} />
+                  </button>
+                ))}
+              </div>
               <a
                 href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-schema-accent text-[#052018] px-4 py-2 rounded text-sm font-semibold hover:opacity-90 transition-opacity duration-200 flex items-center space-x-2 ml-2"
+                className="bg-schema-accent text-schema-oncolor px-4 py-2 rounded text-sm font-semibold hover:opacity-90 transition-opacity duration-200 flex items-center space-x-2 ml-2"
               >
                 <Download size={15} />
                 <span>resume</span>
@@ -70,9 +96,33 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <div
+              role="group"
+              aria-label="Theme"
+              className="flex items-center gap-0.5 border border-schema-border rounded p-0.5 bg-schema-raised"
+            >
+              {THEME_MODES.map((mode) => (
+                <button
+                  key={mode.key}
+                  type="button"
+                  onClick={() => setTheme(mode.key)}
+                  aria-pressed={theme === mode.key}
+                  aria-label={mode.label}
+                  title={mode.label}
+                  className={`p-1.5 rounded transition-colors duration-200 ${
+                    theme === mode.key
+                      ? "bg-schema-bg text-schema-accent"
+                      : "text-schema-faint hover:text-schema-dim"
+                  }`}
+                >
+                  <mode.Icon size={14} />
+                </button>
+              ))}
+            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
               className="text-schema-dim hover:text-schema-accent p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,7 +132,7 @@ export const Navbar = () => {
 
         {isOpen && (
           <div className="md:hidden bg-schema-bg/95 backdrop-blur-sm border-t border-schema-border">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-3 pb-3 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}
@@ -97,7 +147,7 @@ export const Navbar = () => {
                 href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-schema-accent text-[#052018] px-4 py-2 rounded text-sm font-semibold flex items-center space-x-2 mt-4 w-fit"
+                className="bg-schema-accent text-schema-oncolor px-4 py-2 rounded text-sm font-semibold flex items-center space-x-2 mt-4 w-fit"
               >
                 <Download size={15} />
                 <span>resume</span>

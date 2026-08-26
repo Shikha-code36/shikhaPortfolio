@@ -33,41 +33,6 @@ export const Projects = () => {
       },
     },
     {
-      category: "Open Source Contribution",
-      status: "2 merged",
-      project: {
-        title: "DragonflyDB — 2 Merged Production Fixes",
-        description:
-          "Diagnosed and fixed two production-level issues in DragonflyDB (31k★ high-performance Redis-compatible in-memory data store) — spanning interpreter stability and distributed replication correctness.",
-        techStack: [
-          "C++",
-          "Lua Interpreter",
-          "Replication",
-          "Journaling",
-          "Sharding",
-          "std::regex",
-        ],
-        features: [
-          "PR #7974 — Lua interpreter SIGABRT: replaced a recursive std::regex scan in the async-call detector with an iterative scanner, preventing fiber stack exhaustion on long scripts; added regression coverage for large inputs",
-          "PR #8030 — Cross-shard replication crash: fixed replica crashes during journal replay for cross-shard GEORADIUS / GEORADIUSBYMEMBER ... STORE",
-          "Reworked the journaling path to replay explicit destination updates, and fixed floating-point score serialization to preserve exact GEO scores across primary and replica",
-          "Added replication regression coverage and verified the relevant test suites for both fixes",
-        ],
-        links: [
-          {
-            label: "PR #7974 — Interpreter Crash",
-            href: "https://github.com/dragonflydb/dragonfly/pull/7974",
-          },
-          {
-            label: "PR #8030 — Replication Crash",
-            href: "https://github.com/dragonflydb/dragonfly/pull/8030",
-          },
-        ],
-        impact:
-          "Closes a crash any script with a long, contiguous regex-vulnerable string could trigger — and a replication correctness bug where cross-shard GEO commands could crash a replica or leave it silently diverged from the primary. Both now ship in a datastore other engineers run in production.",
-      },
-    },
-    {
       category: "High-Performance Systems",
       project: {
         title: "ArbiSim - Cryptocurrency Arbitrage Detection",
@@ -91,34 +56,6 @@ export const Projects = () => {
         blog: "https://pandeyshikha075.medium.com/building-a-real-time-cryptocurrency-arbitrage-detection-system-lessons-from-high-frequency-trading-be1e8151268b",
         impact:
           "Detecting arbitrage opportunities across multiple exchanges with microsecond precision",
-      },
-    },
-    {
-      category: "Caching & AI",
-      hot: true,
-      project: {
-        title: "SmartEvict - Learned Cache Eviction for LLM Semantic Caches",
-        description:
-          "Cost-aware learned eviction policy for LLM semantic caches, replacing recency-based LRU/FIFO with a lightweight dueling DQN model",
-        techStack: [
-          "Python",
-          "Reinforcement Learning",
-          "FAISS",
-          "GPTCache",
-          "NumPy",
-          "Sentence Transformers",
-        ],
-        features: [
-          "Cold-RL adapted from CDN cache learning to semantic prompt-response caching",
-          "Lightweight dueling DQN policy engine (~9.5K parameters) trained offline",
-          "Cost-aware eviction using regeneration tokens, hit frequency, and staleness ratio",
-          "Deterministic LRU fallback on inference errors for production safety",
-          "Benchmarked on synthetic traffic and real LMSYS-Chat-1M traces against LRU and GDSF baselines",
-        ],
-        github:
-          "https://github.com/Shikha-code36/SmartEvict-Semantic-Cache-Eviction",
-        impact:
-          "Learned policy retained up to +16.7% more regeneration tokens than LRU on real LMSYS-Chat-1M traces, demonstrating that cost-aware caching can meaningfully cut redundant LLM inference",
       },
     },
     {
