@@ -8,6 +8,14 @@ const contributions = [
     repoUrl: "https://github.com/dragonflydb/dragonfly",
     prs: [
       {
+        number: 8174,
+        url: "https://github.com/dragonflydb/dragonfly/pull/8174",
+        title:
+          "fix(tests): wait for loading to finish before first write in test_shutdown_snapshot_contains_acknowledged_writes",
+        note: "DflyInstance.start() only waits for the process to open its port, not for the server to leave LOADING state, so the test's first write could race a BusyLoadingError — added the same readiness wait already used after the second startup.",
+        merged: "Aug 27, 2026",
+      },
+      {
         number: 8135,
         url: "https://github.com/dragonflydb/dragonfly/pull/8135",
         title: "fix(tests): use FLUSHALL SYNC in test_rss_oom_ratio",
