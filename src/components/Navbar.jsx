@@ -85,7 +85,7 @@ export const Navbar = ({ theme, setTheme }) => {
                 ))}
               </div>
               <a
-                href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
+                href="https://drive.google.com/file/d/1DLkDFvIwpzFvHVmKEdIoJJquDjzbWUcs/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-schema-accent text-schema-oncolor px-4 py-2 rounded text-sm font-semibold hover:opacity-90 transition-opacity duration-200 flex items-center space-x-2 ml-2"
@@ -144,7 +144,7 @@ export const Navbar = ({ theme, setTheme }) => {
                 </button>
               ))}
               <a
-                href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
+                href="https://drive.google.com/file/d/1DLkDFvIwpzFvHVmKEdIoJJquDjzbWUcs/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-schema-accent text-schema-oncolor px-4 py-2 rounded text-sm font-semibold flex items-center space-x-2 mt-4 w-fit"

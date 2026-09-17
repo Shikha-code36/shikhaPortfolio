@@ -115,7 +115,7 @@ export const Hero = () => {
         {/* Social Links */}
         <div className="flex flex-wrap gap-3 mb-10">
           <a
-            href="https://drive.google.com/file/d/1ujPsybGbFD2Fi76lrvNHopD6jlYbZp0x/view"
+            href="https://drive.google.com/file/d/1DLkDFvIwpzFvHVmKEdIoJJquDjzbWUcs/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-schema-accent text-schema-oncolor px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity duration-200"
