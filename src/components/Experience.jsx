@@ -5,15 +5,15 @@ import { SectionHeader } from "./shared/SectionHeader";
 export const Experience = () => {
   const corporateExperience = [
     {
-      title: "Software Engineer 2",
+      title: "Software Engineer II",
       company: "American Express",
       period: "Dec 2025 - Present",
       achievements: [
-        "Built and deployed a custom MCP (Model Context Protocol) server to orchestrate LLM workflows and manage contextual data interactions, enabling financial insights generation across enterprise systems",
-        "Designed and developed an AI-powered agent using OpenBB for intelligent financial data analysis, using OpenAI API, LLaMA, and LangChain",
-        "Engineered a graph-based data layer using Apache AGE on PostgreSQL to model and query complex relationships efficiently",
-        "Integrated Langfuse for LLM observability and tracing, and mem0 for agent memory management",
-        "Implemented end-to-end CI/CD pipelines using Jenkins and XL Release (XLR) for reliable, automated deployments",
+        "Cut integration time for internal LLM workflows by ~60% (from ~5-7 days to ~1 day across 15-18 teams) by building a custom MCP server that became the standard way workflows access contextual financial data",
+        "Reduced LLM calls needed per query by ~70% by engineering a graph-based data layer using Apache AGE on PostgreSQL to model financial relationships previously infeasible to express relationally",
+        "Root-caused a production connection-pool exhaustion bug under concurrent load (connections closed but never returned) and fixed it via dependency-injected connection lifecycle management",
+        "Cut RAG response time from ~5-6 min to under 30 sec under heavy concurrent load with a two-layer cache (pgvector semantic cache + Redis embedding cache)",
+        "Cut multi-step agent debugging time by ~60% by integrating Langfuse for LLM observability and mem0 for agent memory",
       ],
     },
     {
@@ -21,10 +21,11 @@ export const Experience = () => {
       company: "EY India",
       period: "Jul 2024 - Dec 2025",
       achievements: [
-        "Engineered enterprise-scale NLP pipeline using OpenAI API and LangChain for financial services",
-        "Architected end-to-end intelligent automation solution with Airflow DAGs and LUMI Data Transformation",
-        "Implemented advanced vector-based data retrieval system using pgvector",
-        "Built robust security architecture with OAuth2 and role-based access control",
+        "Cut time-to-insight for business analysts by ~65% by building an enterprise-scale NLP pipeline (OpenAI API + LangChain) letting them query financial data in plain English instead of hand-writing SQL/BigQuery, via Airflow-orchestrated workflows",
+        "Reduced schema/metadata lookup time by ~50-60% by developing an enterprise-grade FastAPI microservice with pgvector-based retrieval",
+        "Designed an AI metadata-intelligence platform aggregating dataset metadata from Collibra, BigQuery, and design docs, using LLM summarization to generate standardized YAML schemas",
+        "Architected a safety layer for the platform's LLM-facing components handling hallucination mitigation and prompt-injection defense",
+        "Owned the pipeline end-to-end from design through production rollout, becoming the primary point of contact for reliability and onboarding 8-12 new business teams",
       ],
     },
     {
@@ -32,10 +33,9 @@ export const Experience = () => {
       company: "NeoSoft Private Limited",
       period: "Oct 2023 - Jun 2024",
       achievements: [
-        "Engineered robust Flask-based microservices architecture on Google Cloud Platform",
-        "Implemented WebSocket communication for real-time AI interview interactions",
-        "Designed multi-model database architecture using MongoDB and DynamoDB",
-        "Architected event-driven communication using AWS SQS FIFO queues",
+        "Architected a production GenAI interview assessment platform using the OpenAI API and fine-tuned models, replacing manual first-round screening with automated real-time evaluation",
+        "Deployed a Flask-based microservices platform on GCP handling high-concurrency interview sessions via Apache Kafka streaming, keeping evaluation latency low enough for real-time use",
+        "Designed a hybrid MongoDB/DynamoDB data layer and an AWS SQS FIFO event pipeline so evaluations were processed in strict order with no lost events, secured via JWT",
       ],
     },
     {
@@ -43,19 +43,18 @@ export const Experience = () => {
       company: "Althea.AI",
       period: "Sept 2021 - Sept 2023",
       achievements: [
-        "Architected high-performance Document Processing Microservice using FastAPI",
-        "Implemented comprehensive error handling and logging system using Loguru",
-        "Developed scalable web applications following Object-Oriented Design principles",
-        "Worked on RAG applications employing advanced techniques and VectorDBs FAISS",
+        "Led development of an intelligent document understanding system (OpenAI API + custom NLP) automating medical document classification, extraction, and duplicate detection that previously required manual review",
+        "Engineered an asynchronous PDF processing pipeline using RabbitMQ, moving processing from a sequential bottleneck to parallel workflows across concurrent documents",
+        "Built serverless components on AWS Lambda, S3, and SNS, and orchestrated containerized deployment with Docker and ECR on EC2, enabling zero-downtime releases",
       ],
     },
     {
       title: "Network Analyst",
-      company: "Collabera (HCL)",
+      company: "Collabera (HCLTech)",
       period: "Jun 2020 - Aug 2021",
       achievements: [
-        "Optimized complex SQL queries and implemented advanced database indexing strategies, improving data retrieval efficiency",
-        "Managed technical support operations using ServiceNow ITSM, implementing automated incident management workflows and standardized troubleshooting documentation",
+        "Provided technical support for FedEx (US client), resolving incident tickets via the ServiceNow ITSM platform",
+        "Developed strategies for navigating and retrieving from the internal knowledge base, improving resolution speed on recurring issues",
       ],
     },
   ];

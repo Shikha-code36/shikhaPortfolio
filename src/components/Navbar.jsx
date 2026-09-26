@@ -50,7 +50,7 @@ export const Navbar = ({ theme, setTheme }) => {
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-1">
+            <div className="ml-10 flex items-center space-x-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}

@@ -3,7 +3,7 @@ import { ChevronDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 
 export const Hero = () => {
   const [typedRole, setTypedRole] = useState("");
-  const fullRole = "Backend Engineer — Databases, Caching & Distributed Systems";
+  const fullRole = "Software Engineer — Distributed Systems, Databases & Caching, GenAI Infrastructure";
 
   useEffect(() => {
     let index = 0;
@@ -64,10 +64,10 @@ export const Hero = () => {
             <div className="px-4 py-2">value</div>
           </div>
           {[
-            ["experience_yrs", "int", "6"],
-            ["primary_focus", "varchar", "caching, databases, distributed systems"],
-            ["stack", "text[]", "Redis · PostgreSQL · MongoDB · Kafka"],
-            ["domain", "varchar", "enterprise & AI systems"],
+            ["experience_yrs", "int", "6+"],
+            ["primary_focus", "varchar", "distributed systems, databases & caching, GenAI infra"],
+            ["stack", "text[]", "C++ · Python · Go · Redis · PostgreSQL · Kafka"],
+            ["open_source", "varchar", "merged upstream in Dragonfly (shipped v2.0.0), Valkey-Search, BetterDB"],
             [
               "currently_building",
               "varchar",

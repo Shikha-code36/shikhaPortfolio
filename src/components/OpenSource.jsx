@@ -8,6 +8,13 @@ const contributions = [
     repoUrl: "https://github.com/dragonflydb/dragonfly",
     prs: [
       {
+        number: 8240,
+        url: "https://github.com/dragonflydb/dragonfly/pull/8240",
+        title: "fix(cluster): handle client-pause timeout during migration finalization",
+        note: "Pausing clients during cluster migration finalization could time out, which the code treated as an impossible state — traced through the migration flow and pause mechanism to make the timeout a handled failure path instead. Shipped in the v2.0.0 release highlights.",
+        merged: "v2.0.0",
+      },
+      {
         number: 8174,
         url: "https://github.com/dragonflydb/dragonfly/pull/8174",
         title:
@@ -55,6 +62,19 @@ const contributions = [
     ],
   },
   {
+    repo: "valkey-io/valkey-search",
+    repoUrl: "https://github.com/valkey-io/valkey-search",
+    prs: [
+      {
+        number: 1312,
+        url: "https://github.com/valkey-io/valkey-search/pull/1312",
+        title: "Fix stale RDB restore counters inflating number_of_indexes metric",
+        note: "A coordinator RDB load left restore counters stale, so number_of_indexes over-reported index count after a reload — root-caused the stale-counter path and fixed the metric to reflect actual index state.",
+        merged: "v1.3.0",
+      },
+    ],
+  },
+  {
     repo: "BetterDB-inc/monitor",
     repoUrl: "https://github.com/BetterDB-inc/monitor",
     prs: [
@@ -64,7 +84,7 @@ const contributions = [
         title:
           "fix(connect-defaults): keep host.docker.internal on DNS probe timeout",
         note: "A timed-out DNS lookup was treated the same as a definitive NXDOMAIN, so the default host silently fell back to the Docker bridge IP — introduced a tri-state result so only a confirmed 'not found' triggers the fallback.",
-        merged: "Aug 19, 2026",
+        merged: "v0.39.0",
       },
     ],
   },

@@ -7,7 +7,7 @@ export const SectionHeader = ({ file, title, subtitle }) => (
       {title}
     </h2>
     {subtitle && (
-      <p className="text-schema-dim text-sm md:text-base mt-3 max-w-2xl">
+      <p className="text-schema-dim text-sm md:text-base mt-3 max-w-3xl">
         {subtitle}
       </p>
     )}
