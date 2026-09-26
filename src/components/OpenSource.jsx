@@ -79,6 +79,13 @@ const contributions = [
     repoUrl: "https://github.com/BetterDB-inc/monitor",
     prs: [
       {
+        number: 405,
+        url: "https://github.com/BetterDB-inc/monitor/pull/405",
+        title: "fix(mcp): propagate real HTTP status instead of generic 500",
+        note: "Every MCP handler caught all errors and rethrew a hardcoded 500, so a non-existent instanceId returned 500 instead of 404 — adopted the shared mapMcpError helper and stopped it from leaking internal error text into client-facing responses.",
+        merged: "v0.39.0",
+      },
+      {
         number: 402,
         url: "https://github.com/BetterDB-inc/monitor/pull/402",
         title:
